@@ -2,7 +2,7 @@
 
 This project contains the backend of a web-application that propose the typical services of any food chain. This project is purely educational.
 
-Click here to see the [frontend](https://github.com/GregoryHue/srfcFront)
+Click here to see the [frontend](https://github.com/GregoryHue/srfcFront).
 
 # Setup
 
@@ -37,3 +37,16 @@ python3 -m pip install Django
 Versions :
 * Python 3.9.2
 * Django-admin 4.0.4
+
+## Structure
+
+The structure of the project needs to respect the following :
+
+```
+main/
+    subfolders/
+    subfiles.ext
+.gitignore
+LICENSE
+LICENSE.md
+```
