@@ -71,6 +71,7 @@ main/
 .gitignore
 LICENSE
 LICENSE.md
+fd-shell.sh
 ```
 
 ## Shell
