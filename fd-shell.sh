@@ -44,7 +44,7 @@ function fd-project() {
     sudo apt update
     sudo apt upgrade
     sudo apt install python3 python3-pip postgresql postgresql-contrib nodejs npm dbus-x11 gnome-terminal
-    sudo service postregsql restart
+    sudo service postgresql restart
     sudo python3 -m pip install Django
     sudo npm update -g npm
     sudo npm install -g @vue/cli
