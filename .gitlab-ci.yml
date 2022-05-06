@@ -5,8 +5,8 @@ services:
 
 variables:
   POSTGRES_DB: fd_database
-  POSTGRES_USER: fd_user
-  POSTGRES_PASSWORD: fd_password
+  POSTGRES_USER: postgres
+  POSTGRES_PASSWORD: ""
 
 build:
     script:
