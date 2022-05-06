@@ -82,27 +82,28 @@ function fd-projects() {
 }
 
 function fd-remove() {
-    if grep -Fxq "# fd-shell begin" ~/.bashrc
+    if grep -Fxq "source ~/.fd-bashrc" ~/.bashrc
     then
         printf  "${CYAN}removing fd-shell${NC}\n"
-        sed -i '/^# fd-shell begin/,/^# fd-shell end/{/^# fd-shell begin/!{/^# fd-shell end/!d}}' ~/.bashrc
-        sed -i '/^# fd-shell begin/d' ~/.bashrc
-        sed -i '/^# fd-shell end/d'  ~/.bashrc
+        rm ~/.fd-bashrc
+        sed -i '/^source ~/.fd-bashrc/d'  ~/.bashrc
     else
         printf  "${RED}fd-shell is not installed${NC}\n"
     fi 
 }
 
 function fd-install() {
-    if grep -Fxq "# fd-shell begin" ~/.bashrc
+    if grep -Fxq "source ~/.fd-bashrc" ~/.bashrc
     then
         printf  "${RED}fd-shell is already installed${NC}\n"
         fd-remove
         printf  "${CYAN}re-installing fd-shell${NC}\n"
-        cat ./fd-shell.sh >> ~/.bashrc
+        cat ./fd-shell.sh >> ~/.fd-bashrc
+        printf  "\nsource ~/.fd-bashrc"
     else
         printf  "${CYAN}installing fd-shell${NC}\n"
-        cat ./fd-shell.sh >> ~/.bashrc
+        cat ./fd-shell.sh >> ~/.fd-bashrc
+        printf  "\nsource ~/.fd-bashrc"
     fi 
 }
 

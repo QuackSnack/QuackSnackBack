@@ -11,7 +11,7 @@ default:
   services:
     - postgres:12.10
 
-dependencies:
+deploy:
   stage: deploy
   script:
     - apt -y update
