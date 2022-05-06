@@ -1,19 +1,15 @@
-variables:
-  POSTGRES_DB: fd_database
-  POSTGRES_USER: postgres
-  POSTGRES_PASSWORD: postgres
+image: python:3.8.10
 
-stages:
-  - deploy
-
-default:
-  image: ubuntu:20.04
-  services:
+services:
     - postgres:12.10
 
-deploy:
-  stage: deploy
-  script:
+variables:
+  POSTGRES_DB: fd_database
+  POSTGRES_USER: fd_user
+  POSTGRES_PASSWORD: fd_password
+
+build:
+    script:
     - apt -y update
     - apt -y install apt-utils
     - DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt -y install tzdata
@@ -26,6 +22,3 @@ deploy:
     - python3 manage.py makemigrations
     - python3 manage.py migrate
     - python3 manage.py check
-  only:
-    - main
-
