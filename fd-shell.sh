@@ -86,7 +86,7 @@ function fd-remove() {
     then
         printf  "${CYAN}removing fd-shell${NC}\n"
         rm ~/.fd-bashrc
-        sed -i '/^source ~/.fd-bashrc/d'  ~/.bashrc
+        sed -i '/^source ~\/\.fd-bashrc/d'  ~/.bashrc
     else
         printf  "${RED}fd-shell is not installed${NC}\n"
     fi 
