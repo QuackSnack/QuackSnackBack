@@ -16,6 +16,7 @@ deploy:
   script:
     - apt -y update
     - apt -y install apt-utils
+    - RUN DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt -y install tzdata
     - apt -y install net-tools python3 python3-pip postgresql postgresql-contrib libpq-dev
     - apt -y upgrade
     - cd back

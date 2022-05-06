@@ -1,7 +1,4 @@
-
 # fd-shell begin
-
-#!/bin/bash
 
 RED='\033[0;31m'
 CYAN='\033[0;36m'
@@ -55,8 +52,9 @@ function fd-database() {
 function fd-projects() {
     sudo apt update
     sudo apt upgrade
-    sudo apt install python3 python3-pip postgresql postgresql-contrib libpq-dev psycopg2 nodejs npm dbus-x11 gnome-terminal
+    sudo apt install python3 python3-pip postgresql postgresql-contrib libpq-dev nodejs npm dbus-x11 gnome-terminal
     sudo service postgresql restart
+    sudo python3 -m pip install psycopg2
     sudo python3 -m pip install Django
     sudo npm update -g npm
     sudo npm install -g @vue/cli
@@ -106,5 +104,3 @@ function fd-install() {
         printf  "\nsource ~/.fd-bashrc" >> ~/.bashrc
     fi 
 }
-
-# fd-shell end
