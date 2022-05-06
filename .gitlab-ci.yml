@@ -23,6 +23,10 @@ deploy:
     - python3 -m pip install psycopg2
     - python3 -m pip install Django
     - service postgresql restart
+    
+    - -u postgres createdb $DATABASE_NAME -e
+    - -u postgres psql -d $DATABASE_NAME -c "create user fd_user with encrypted password 'fd_password';"
+    - -u postgres psql -d $DATABASE_NAME -c "grant all privileges on database $DATABASE_NAME to fd_user;"
     - python3 manage.py makemigrations
     - python3 manage.py migrate
     - python3 manage.py check
