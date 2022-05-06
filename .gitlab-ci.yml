@@ -4,8 +4,7 @@ variables:
   POSTGRES_PASSWORD: fd_password
 
 stages:
-  - dependencies
-  - migrate
+  - deploy
 
 default:
   image: ubuntu:20.04
@@ -13,20 +12,15 @@ default:
     - postgres:12.10
 
 dependencies:
-  stage: dependencies
+  stage: deploy
   script:
     - apt -y update
     - apt -y install apt-utils
     - apt -y install net-tools python3 python3-pip mysql-client libmysqlclient-dev
     - apt -y upgrade
-  only:
-    - main
-
-migrate:
-  stage: migrate
-  script:
     - python3 back/manage.py makemigrations
     - python3 back/manage.py migrate
     - python3 back/manage.py check
   only:
     - main
+

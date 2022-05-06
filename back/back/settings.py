@@ -80,7 +80,7 @@ DATABASES = {
         'USER': 'fd_user',
         'PASSWORD': 'fd_password',
         'HOST': 'localhost',
-        'PORT': '5433',
+        'PORT': '5432',
     }
 }
 
