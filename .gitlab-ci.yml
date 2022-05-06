@@ -1,7 +1,7 @@
 variables:
   POSTGRES_DB: fd_database
-  POSTGRES_USER: fd_user
-  POSTGRES_PASSWORD: fd_user
+  POSTGRES_USER: postgres
+  POSTGRES_PASSWORD: postgres
 
 stages:
   - deploy
