@@ -19,6 +19,7 @@ build:
     - python3 -m pip install Django
     - service postgresql restart
     - export PGPASSWORD=$POSTGRES_PASSWORD
+    - cat /etc/postgresql/12/main/pg_hba.conf 
     - psql -U "$POSTGRES_USER" -d "$POSTGRES_DB" -c "SELECT 'OK' AS status;"
     - python3 back/manage.py makemigrations
     - python3 back/manage.py migrate
