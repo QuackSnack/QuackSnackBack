@@ -8,6 +8,8 @@ variables:
   POSTGRES_PASSWORD: "fd_password"
   POSTGRES_HOST_AUTH_METHOD: trust
 script:
+  - export PGPASSWORD=$POSTGRES_PASSWORD
+  - psql -h "postgres" -U "$POSTGRES_USER" -d "$POSTGRES_DB" -c "SELECT 'OK' AS status;"
   - apt -y update
   - apt -y install apt-utils
   - DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt -y install tzdata
