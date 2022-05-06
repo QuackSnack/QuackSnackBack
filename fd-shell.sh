@@ -99,11 +99,11 @@ function fd-install() {
         fd-remove
         printf  "${CYAN}re-installing fd-shell${NC}\n"
         cat ./fd-shell.sh >> ~/.fd-bashrc
-        printf  "\nsource ~/.fd-bashrc"
+        printf  "\nsource ~/.fd-bashrc" >> ~/.bashrc
     else
         printf  "${CYAN}installing fd-shell${NC}\n"
         cat ./fd-shell.sh >> ~/.fd-bashrc
-        printf  "\nsource ~/.fd-bashrc"
+        printf  "\nsource ~/.fd-bashrc" >> ~/.bashrc
     fi 
 }
 
