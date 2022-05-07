@@ -30,7 +30,12 @@ function fd-back() {
 }
 
 function fd-pass() {
-    sudo cat /etc/postgresql/12/main/pg_hba.conf
+    sudo sed -i 's/peer/trust/g' /etc/postgresql/12/main/pg_hba.conf
+    sudo sed -i 's/md5/trust/g' /etc/postgresql/12/main/pg_hba.conf
+    sudo service postgresql restart
+    psql -U postgres -d template1 -c "ALTER USER postgres PASSWORD 'fd_password';" 
+    sudo sed -i 's/trust/md5/g' /etc/postgresql/12/main/pg_hba.conf
+    sudo service postgresql restart
 }
 
 function fd-database() {
