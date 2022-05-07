@@ -29,6 +29,10 @@ function fd-back() {
     fi
 }
 
+function fd-pass() {
+    sudo cat /etc/postgresql/12/main/pg_hba.conf
+}
+
 function fd-database() {
     declare DATABASE_NAME="fd_database"
 
