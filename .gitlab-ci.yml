@@ -14,6 +14,8 @@ build:
     - service postgresql restart
     - python3 -m pip install psycopg2
     - python3 -m pip install Django
+    - ls /etc/postgresql
+    - ls /var/lib/pgsql/data/
  
     - sed -i 's/peer/trust/g' /etc/postgresql/12/main/pg_hba.conf
     - sed -i 's/md5/trust/g' /etc/postgresql/12/main/pg_hba.conf
