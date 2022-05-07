@@ -5,7 +5,7 @@ stages:
 build:
   stage: build
   services:
-    - postgres
+    - postgres:12.10
   variables:
     POSTGRES_DB: fd_database
     POSTGRES_USER: fd_user
