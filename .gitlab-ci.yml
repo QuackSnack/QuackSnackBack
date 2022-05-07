@@ -1,14 +1,15 @@
-variables:
-    POSTGRES_DB: fd_database
-    POSTGRES_USER: fd_user
-    POSTGRES_PASSWORD: fd_password
-
 stages:
   - build
   - deploy
 
 build:
   stage: build
+  services:
+    - postgres
+  variables:
+    POSTGRES_DB: fd_database
+    POSTGRES_USER: fd_user
+    POSTGRES_PASSWORD: fd_password
   script:
     - apt -y update
     - apt -y upgrade
@@ -17,7 +18,7 @@ build:
     - python3 -m pip install psycopg2
     - python3 -m pip install Django
     - export PGPASSWORD=$POSTGRES_PASSWORD
-    - psql -h "postgres" -U "$POSTGRES_USER" -d "$POSTGRES_DB" -c "SELECT 'OK' AS status;"
+    - psql -h "localhost" -U "$POSTGRES_USER" -d "$POSTGRES_DB" -c "SELECT 'OK' AS status;"
 
   only:
     - main
