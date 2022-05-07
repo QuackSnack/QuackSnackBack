@@ -32,8 +32,8 @@ build:
 deploy:
   stage: deploy
   script:
-    - python3 front/manage.py makemigrations
-    - python3 front/manage.py migrate
+    - python3 back/manage.py makemigrations
+    - python3 back/manage.py migrate
   only:
     - main
   dependencies:
