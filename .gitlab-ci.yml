@@ -14,8 +14,7 @@ build:
     - service postgresql restart
     - python3 -m pip install psycopg2
     - python3 -m pip install Django
-    - createuser fd_owner
-    - createdb -O fd_owner fd_database
+    - createdb -U postgres fd_database
     - psql -d  fd_database -c "create user fd_user with encrypted password 'fd_password';"
     - psql -d fd_database -c "grant all privileges on database $DATABASE_NAME to fd_user;"
   only:
