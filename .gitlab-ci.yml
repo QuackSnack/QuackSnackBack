@@ -14,15 +14,13 @@ build:
     - service postgresql restart
     - python3 -m pip install psycopg2
     - python3 -m pip install Django
-    - ls /etc/postgresql
-    - ls /var/lib/pgsql/data/
  
-    - sed -i 's/peer/trust/g' /etc/postgresql/12/main/pg_hba.conf
-    - sed -i 's/md5/trust/g' /etc/postgresql/12/main/pg_hba.conf
+    - sed -i 's/peer/trust/g' /etc/postgresql/11/main/pg_hba.conf
+    - sed -i 's/md5/trust/g' /etc/postgresql/11/main/pg_hba.conf
     - service postgresql restart
     - psql -U postgres -d template1 -c "ALTER USER postgres PASSWORD 'fd_admin';"
     - export PGPASSWORD=fd_admin
-    - sed -i 's/trust/md5/g' /etc/postgresql/12/main/pg_hba.conf
+    - sed -i 's/trust/md5/g' /etc/postgresql/11/main/pg_hba.conf
     - service postgresql restart
 
     - createdb -U postgres -h localhost fd_database
