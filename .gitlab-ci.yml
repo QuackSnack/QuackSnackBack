@@ -24,8 +24,8 @@ build:
     - service postgresql restart
 
     - createdb -U postgres -h localhost fd_database
-    - psql -d  fd_database -c "create user fd_user with encrypted password 'fd_password';"
-    - psql -d fd_database -c "grant all privileges on database $DATABASE_NAME to fd_user;"
+    - psql -U postgres -d fd_database -c "create user fd_user with encrypted password 'fd_password';"
+    - psql -U postgres -d fd_database -c "grant all privileges on database $DATABASE_NAME to fd_user;"
   only:
     - main
 
