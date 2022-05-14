@@ -1,115 +1,65 @@
-# fd-shell begin
+# Description
 
-RED='\033[0;31m'
-CYAN='\033[0;36m'
-NC='\033[0m'
+This project contains the backend of a web-application called **FoodDistribution** that propose the typical services of any food chain. This project and the web-application is made purely as an educationnal purpose.
 
-function fd-front() {
-    if [ -n "$1" ] && [ "$1" == "build" ]; then
-        printf  "${CYAN}building frontend${NC}\n"
-        npm run --prefix $HOME/dev/FoodDistributionFront/front/ build
-    elif [ -n "$1" ] && [ "$1" == "start" ]; then
-        printf  "${CYAN}starting frontend${NC}\n"
-        npm run --prefix $HOME/dev/FoodDistributionFront/front/ serve
-    else
-        printf  "${CYAN}start / build${NC}\n"
-    fi
-}
+Click here to see the [frontend](https://gitlab.com/GregoryHue/FoodDistributionFront).
 
-function fd-back() {
-    if [ -n "$1" ] && [ "$1" == "start" ]; then
-        printf  "${CYAN}starting backend${NC}\n"
-        python3 $HOME/dev/FoodDistributionBack/back/manage.py runserver
-    elif [ -n "$1" ] && [ "$1" == "migrate" ]; then
-        printf  "${CYAN}migrating backend${NC}\n"
-        python3 $HOME/dev/FoodDistributionBack/back/manage.py makemigrations
-        python3 $HOME/dev/FoodDistributionBack/back/manage.py migrate
-    else
-        printf  "${CYAN}start / migrate${NC}\n"
-    fi
-}
+# Setup
 
-function fd-pass() {
-    sudo sed -i 's/peer/trust/g' /etc/postgresql/12/main/pg_hba.conf
-    sudo sed -i 's/md5/trust/g' /etc/postgresql/12/main/pg_hba.conf
-    sudo service postgresql restart
-    psql -U postgres -d template1 -c "ALTER USER postgres PASSWORD 'fd_password';" 
-    sudo sed -i 's/trust/md5/g' /etc/postgresql/12/main/pg_hba.conf
-    sudo service postgresql restart
-}
+This setup was made on a Debian 11 distro, using the Windows 11 WSL. The project is placed in `/home/user/dev/FoodDistributionBack`.
 
-function fd-database() {
-    declare DATABASE_NAME="fd_database"
+***WARNING : It is highly recommended to set this up on an empty distribution as it may mess with your current packages, libraries and database system.***
 
-    if [ -n "$1" ] && [ "$1" == "create" ]; then
-        printf  "${CYAN}creating database${NC}\n"
-        sudo apt-get update
-        sudo service postgresql restart
-        sudo -u postgres createdb $DATABASE_NAME -e
-        sudo -u postgres psql -d $DATABASE_NAME -c "create user fd_user with encrypted password 'fd_password';"
-        sudo -u postgres psql -d $DATABASE_NAME -c "grant all privileges on database $DATABASE_NAME to fd_user;"
-    elif [ -n "$1" ] && [ "$1" == "drop" ]; then
-        printf  "${CYAN}dropping database & user${NC}\n"
-        sudo -u postgres psql -d postgres -c "SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE datname = '$DATABASE_NAME';"
-        sudo -u postgres dropdb $DATABASE_NAME -e
-        sudo -u postgres dropuser fd_user -e
-    else
-        printf  "${CYAN}create / drop${NC}\n"
-    fi
-}
+## By using a shell
 
-function fd-projects() {
-    sudo apt update
-    sudo apt upgrade
-    sudo apt install python3 python3-pip postgresql postgresql-contrib libpq-dev nodejs npm dbus-x11 gnome-terminal
-    sudo service postgresql restart
-    sudo python3 -m pip install psycopg2
-    sudo python3 -m pip install Django
-    sudo npm update -g npm
-    sudo npm install -g @vue/cli
-    sudo npm install -g n
-    sudo n stable
-    mkdir -p $HOME/dev
-    cd $HOME/dev
-    if [ -n "$1" ] && [ "$1" == "front" ]; then
-        printf  "${CYAN}pulling front${NC}\n"
-        git clone git@github.com:GregoryHue/FoodDistributionFront.git
-    elif [ -n "$1" ] && [ "$1" == "back" ]; then
-        printf  "${CYAN}pulling back${NC}\n"
-        git clone git@github.com:GregoryHue/FoodDistributionBack.git
-    elif [ -n "$1" ] && [ "$1" == "both" ]; then
-        printf  "${CYAN}pulling front and back${NC}\n"
-        git clone git@github.com:GregoryHue/FoodDistributionFront.git
-        git clone git@github.com:GregoryHue/FoodDistributionBack.git
-        cd FoodDistributionFront/front
-        npm install
-    else
-        printf  "${CYAN}front / back / both${NC}\n"
-    fi
-}
+To facilitate the setup and project management, the same shell is proposed in both projects. Use this command to create a folder, pull the project inside of it, then make a quick install with the shell :
 
-function fd-remove() {
-    if grep -Fxq "source ~/.fd-bashrc" ~/.bashrc
-    then
-        printf  "${CYAN}removing fd-shell${NC}\n"
-        rm ~/.fd-bashrc
-        sed -i '/^source ~\/\.fd-bashrc/d'  ~/.bashrc
-    else
-        printf  "${RED}fd-shell is not installed${NC}\n"
-    fi 
-}
+```bash
+cd && mkdir dev && cd dev && git clone https://gitlab.com/GregoryHue/FoodDistributionBack.git && cd FoodDistributionBack && source fd-shell.sh; fd-quick-install
+```
 
-function fd-install() {
-    if grep -Fxq "source ~/.fd-bashrc" ~/.bashrc
-    then
-        printf  "${RED}fd-shell is already installed${NC}\n"
-        fd-remove
-        printf  "${CYAN}re-installing fd-shell${NC}\n"
-        cat ./fd-shell.sh >> ~/.fd-bashrc
-        printf  "\nsource ~/.fd-bashrc" >> ~/.bashrc
-    else
-        printf  "${CYAN}installing fd-shell${NC}\n"
-        cat ./fd-shell.sh >> ~/.fd-bashrc
-        printf  "\nsource ~/.fd-bashrc" >> ~/.bashrc
-    fi 
-}
+This will install the shell in your `~/.bashrc` file. The shell includes the following commands :
+
+* `fd-install` : install the shell in `~/.bashrc`.
+* `fd-remove` : remove the shell in `~/.bashrc`.
+* `fd-projects` : pull every projects.
+
+If you wish to remove the shell, use this command from any folder :
+
+```
+fd-remove
+```
+
+You may need to relog into your session so that it takes effect.
+
+## By installing dependencies manually
+
+Update your packages :
+
+```
+sudo apt update && sudo apt upgrade
+```
+
+Install all the dependencies :
+
+```
+sudo apt install nodejs npm 
+```
+
+Versions :
+* Nodejs v12.22.5
+* Npm 7.5.2
+
+## Structure
+
+The structure of the project needs to respect the following :
+
+```
+main/
+    subfolders/
+    subfiles.ext
+.gitignore
+LICENSE
+LICENSE.md
+fd-shell.sh
+```
