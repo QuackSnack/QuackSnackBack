@@ -108,12 +108,12 @@ function fd-projects() {
     mkdir -p $HOME/dev
 
     cd $HOME/dev
-    git clone https://gitlab.com/GregoryHue/FoodDistributionBack.git
+    git clone git@gitlab.com:GregoryHue/FoodDistributionBack.git
     cd FoodDistributionBack/back
     python3 manage.py makemigrations && python3 manage.py migrate
     
     cd $HOME/dev
-    git clone https://gitlab.com/GregoryHue/FoodDistributionFront.git
+    git clone https://git@gitlab.com:GregoryHue/FoodDistributionFront.git
     cd FoodDistributionFront/front
     npm install
 }
