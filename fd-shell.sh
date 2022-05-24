@@ -13,17 +13,32 @@ declare DATABASE_NAME="fd_database"
 declare DATABASE_USER="fd_user"
     
 declare DATABASE_PASSWORD="fd_password"
-    
+
+# Runs the frontend
 function fd-front() {
     cd $HOME/dev/FoodDistributionFront/front
     npm run dev
-}    
+}
 
+# Runs the backend
 function fd-back() {
     cd $HOME/dev/FoodDistributionBack/back
     python3 manage.py runserver
 }
 
+# Pulls the changes on every projects
+function fd-pull() {
+    cd $HOME/dev/FoodDistributionBack && git status && git fetch && git pull
+    cd $HOME/dev/FoodDistributionFront && git status && git fetch && git pull
+}
+
+# Push the changes on every projects
+function fd-push() {
+    cd $HOME/dev/FoodDistributionBack && git status && git add . && git commit -m "Updated: `date +'%Y-%m-%d %H:%M:%S'`" && git push
+    cd $HOME/dev/FoodDistributionFront && git status && git add . && git commit -m "Updated: `date +'%Y-%m-%d %H:%M:%S'`" && git push
+}
+
+# Change the password of the database superuser 
 function fd-pass() {
     printf  "${CYAN}configuring database${NC}\n"
     sudo sed -i 's/peer/trust/g' /etc/postgresql/*/main/pg_hba.conf
@@ -36,8 +51,8 @@ function fd-pass() {
     sudo service postgresql restart
 }
 
+# Create or drop the fd dabatase
 function fd-database() {
-
     if [ -n "$1" ] && [ "$1" == "create" ]; then
         printf  "${CYAN}creating database${NC}\n"
         sudo -u postgres PGPASSWORD=$DATABASE_PASSWORD createdb $DATABASE_NAME
@@ -54,6 +69,7 @@ function fd-database() {
     fi
 }
 
+# Installs all required libraries
 function fd-libs() {
     printf  "${CYAN}installing packages and libraries${NC}\n"
     sudo apt update -y
@@ -67,6 +83,7 @@ function fd-libs() {
     sudo npm update -g npm
 }
 
+# Remove the fd shell
 function fd-remove() {
     if grep -Fxq "source ~/.fd-bashrc" ~/.bashrc
     then
@@ -78,6 +95,7 @@ function fd-remove() {
     fi 
 }
 
+# Pulls the projects
 function fd-projects() {
     mkdir -p $HOME/dev
 
@@ -92,21 +110,23 @@ function fd-projects() {
     npm install
 }
 
+# Installs the fd shell
 function fd-install() {
     if grep -Fxq "source ~/.fd-bashrc" ~/.bashrc
     then
         printf  "${RED}fd-shell is already installed${NC}\n"
         fd-remove
         printf  "${CYAN}re-installing fd-shell${NC}\n"
-        cat ./fd-shell.sh >> ~/.fd-bashrc
+        cat ./fd-shell.sh > ~/.fd-bashrc
         printf  "\nsource ~/.fd-bashrc" >> ~/.bashrc
     else
         printf  "${CYAN}installing fd-shell${NC}\n"
-        cat ./fd-shell.sh >> ~/.fd-bashrc
+        cat ./fd-shell.sh > ~/.fd-bashrc
         printf  "\nsource ~/.fd-bashrc" >> ~/.bashrc
     fi 
 }
 
+# Installs all the requirements
 function fd-quick-install() {
     printf  "${CYAN}making a quick install${NC}\n"
     fd-install
