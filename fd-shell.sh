@@ -29,9 +29,13 @@ function fd-back() {
 # Pulls the changes on every projects
 function fd-pull() {
     printf  "${CYAN}pulling FoodDistributionBack${NC}\n"
-    cd $HOME/dev/FoodDistributionBack && git status && git fetch && git pull
+    cd $HOME/dev/FoodDistributionBack && git status
+    git fetch
+    git pull
     printf  "${CYAN}pulling FoodDistributionFront${NC}\n"
-    cd $HOME/dev/FoodDistributionFront && git status && git fetch && git pull
+    cd $HOME/dev/FoodDistributionFront && git status
+    git fetch
+    git pull
 }
 
 # Push the changes on every projects
