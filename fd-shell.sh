@@ -26,7 +26,7 @@ function fd-back() {
     python3 manage.py runserver
 }
 
-# Pulls the changes on every projects
+# Pulls the changes on every project
 function fd-pull() {
     printf  "${CYAN}pulling FoodDistributionBack${NC}\n"
     cd $HOME/dev/FoodDistributionBack && git status
