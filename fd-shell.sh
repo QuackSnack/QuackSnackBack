@@ -41,9 +41,9 @@ function fd-pull() {
 # Push the changes on every projects
 function fd-push() {
     printf  "${CYAN}pushing to FoodDistributionBack${NC}\n"
-    cd $HOME/dev/FoodDistributionBack && git status && git add . && git commit -m "Updated: `date +'%Y-%m-%d %H:%M:%S'`" && git push
+    cd $HOME/dev/FoodDistributionBack && git status && git add . && git commit -m "Updated: `date +'%d-%m-%Y %H:%M:%S'`" && git push
     printf  "${CYAN}puhsing to FoodDistributionFront${NC}\n"
-    cd $HOME/dev/FoodDistributionFront && git status && git add . && git commit -m "Updated: `date +'%Y-%m-%d %H:%M:%S'`" && git push
+    cd $HOME/dev/FoodDistributionFront && git status && git add . && git commit -m "Updated: `date +'%d-%m-%Y %H:%M:%S'`" && git push
 }
 
 # Change the password of the database superuser 
