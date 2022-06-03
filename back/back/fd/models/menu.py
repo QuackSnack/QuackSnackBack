@@ -1,9 +1,11 @@
 from django.db import models
 from .user import User
+from .article import Article
 
-class Article(models.Model):
+class Menu(models.Model):
     name = models.CharField(max_length=50)
     image = models.CharField(max_length=50)
     description = models.TextField()
     price = models.IntegerField()
-    owner_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    articles = models.ManyToManyField(Article)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)

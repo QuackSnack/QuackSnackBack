@@ -11,4 +11,4 @@ class User(models.Model):
     country = models.CharField(max_length=50)
     street = models.CharField(max_length=50)
     role = models.IntegerField()
-    date_creation = models.DateTimeField(auto_now_add=True)
+    creation_date = models.DateTimeField(auto_now_add=True)
