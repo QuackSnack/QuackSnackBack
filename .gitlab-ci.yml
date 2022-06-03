@@ -26,6 +26,6 @@ deploy:
     - psql -U postgres -d qs_database -c "grant all privileges on database qs_database to qs_user;"
     - python3 back/manage.py makemigrations
     - python3 back/manage.py migrate
-    - python3 back/manage.py loaddata data.json
+    - python3 back/manage.py loaddata back/data.json
   only:
     - main
