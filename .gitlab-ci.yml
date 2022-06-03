@@ -12,7 +12,8 @@ deploy:
     - apt -y install python3 python3-pip postgresql postgresql-contrib libpq-dev
     - service postgresql start
     - python3 -m pip install psycopg2
-    - python3 -m pip install Django
+    - python3 -m pip install django
+    - python3 -m pip install djangorestframework
     - sed -i 's/peer/trust/g' /etc/postgresql/11/main/pg_hba.conf
     - sed -i 's/md5/trust/g' /etc/postgresql/11/main/pg_hba.conf
     - service postgresql restart
@@ -25,5 +26,6 @@ deploy:
     - psql -U postgres -d qs_database -c "grant all privileges on database qs_database to qs_user;"
     - python3 back/manage.py makemigrations
     - python3 back/manage.py migrate
+    - python3 back/manage.py loaddata back/qs/data.json
   only:
     - main
