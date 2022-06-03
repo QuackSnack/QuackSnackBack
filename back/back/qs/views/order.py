@@ -1,6 +1,6 @@
 from django.http import JsonResponse
-from back.fd.serializers.order import OrderSerializer, OrderSerializerFull
-from back.fd.models.order import Order
+from back.qs.serializers.order import OrderSerializer, OrderSerializerFull
+from back.qs.models.order import Order
 
 
 def order(request, order_id):

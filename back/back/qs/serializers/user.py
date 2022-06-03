@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from back.fd.models import User
+from back.qs.models import User
 
 
 class UserSerializer(serializers.ModelSerializer):

@@ -2,7 +2,7 @@
 from django.contrib import admin
 from django.urls import path
 
-from back.fd.views import user, order, menu, article
+from back.qs.views import user, order, menu, article
 
 urlpatterns = [
     path('admin/', admin.site.urls),

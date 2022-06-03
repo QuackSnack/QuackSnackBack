@@ -1,12 +1,12 @@
 # Description
 
-This project contains the backend of a web-application called **FoodDistribution** that propose the typical services of any food chain. This project and the web-application is made purely as an educationnal purpose.
+This project contains the backend of a web-application called ***QuackSnack*** *(for a quick snack)* that propose the typical services of any food chain. This project and the web-application is made purely as an educationnal purpose.
 
-Click here to see the [frontend](https://gitlab.com/GregoryHue/FoodDistributionFront).
+Click here to see the [frontend](https://gitlab.com/GregoryHue/QuackSnackFront).
 
 # Setup
 
-This setup was made on a Debian 11 distro, using the Windows 11 WSL. The project is placed in `/home/user/dev/FoodDistributionBack`.
+This setup was made on a Debian 11 distro, using the Windows 11 WSL. The project is placed in `/home/user/dev/QuackSnackBack`.
 
 ***WARNING : It is highly recommended to set this up on an empty distribution as it may mess with your current packages, libraries and database system.***
 
@@ -18,21 +18,21 @@ To facilitate the setup and project management, the same shell is proposed in bo
 cd && \
 mkdir dev && \
 cd dev && \
-git clone git@gitlab.com:GregoryHue/FoodDistributionBack.git && \
-cd FoodDistributionBack && \
-source fd-shell.sh; fd-quick-install
+git clone git@gitlab.com:GregoryHue/QuackSnackBack.git && \
+cd QuackSnackBack && \
+source qs-shell.sh; qs-quick-install
 ```
 
 This will install the shell in your `~/.bashrc` file. The shell includes the following commands :
 
-* `fd-install` : install the shell in `~/.bashrc`.
-* `fd-remove` : remove the shell in `~/.bashrc`.
-* `fd-projects` : pull every projects.
+* `qs-install` : install the shell in `~/.bashrc`.
+* `qs-remove` : remove the shell in `~/.bashrc`.
+* `qs-projects` : pull every projects.
 
 If you wish to remove the shell, use this command from any folder :
 
 ```
-fd-remove
+qs-remove
 ```
 
 You may need to relog into your session so that it takes effect.
@@ -66,5 +66,5 @@ main/
 .gitignore
 LICENSE
 LICENSE.md
-fd-shell.sh
+qs-shell.sh
 ```

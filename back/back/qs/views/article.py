@@ -1,6 +1,6 @@
 from django.http import JsonResponse
-from back.fd.serializers.article import ArticleSerializer
-from back.fd.models.article import Article
+from back.qs.serializers.article import ArticleSerializer
+from back.qs.models.article import Article
 
 
 def article(request, article_id):

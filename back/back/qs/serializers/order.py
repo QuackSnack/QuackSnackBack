@@ -1,8 +1,8 @@
 from rest_framework import serializers
-from back.fd.serializers.menu import MenuSerializer, MenuSerializerFull
-from back.fd.serializers.article import ArticleSerializer, ArticleSerializerFull
-from back.fd.serializers.user import UserSerializer
-from back.fd.models import Order
+from back.qs.serializers.menu import MenuSerializer, MenuSerializerFull
+from back.qs.serializers.article import ArticleSerializer, ArticleSerializerFull
+from back.qs.serializers.user import UserSerializer
+from back.qs.models import Order
 
 
 class OrderSerializer(serializers.ModelSerializer):

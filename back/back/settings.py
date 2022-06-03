@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'back.fd',
+    'back.qs',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -77,9 +77,9 @@ WSGI_APPLICATION = 'back.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'fd_database',
-        'USER': 'fd_user',
-        'PASSWORD': 'fd_password',
+        'NAME': 'qs_database',
+        'USER': 'qs_user',
+        'PASSWORD': 'qs_password',
         'HOST': 'localhost',
         'PORT': '5432',
     }

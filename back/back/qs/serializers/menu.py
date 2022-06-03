@@ -1,7 +1,7 @@
 from rest_framework import serializers
-from back.fd.serializers.article import ArticleSerializer, ArticleSerializerFull
-from back.fd.serializers.user import UserSerializer
-from back.fd.models import Menu
+from back.qs.serializers.article import ArticleSerializer, ArticleSerializerFull
+from back.qs.serializers.user import UserSerializer
+from back.qs.models import Menu
 
 
 class MenuSerializer(serializers.ModelSerializer):

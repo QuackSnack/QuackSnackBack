@@ -16,13 +16,13 @@ deploy:
     - sed -i 's/peer/trust/g' /etc/postgresql/11/main/pg_hba.conf
     - sed -i 's/md5/trust/g' /etc/postgresql/11/main/pg_hba.conf
     - service postgresql restart
-    - psql -U postgres -d template1 -c "ALTER USER postgres PASSWORD 'fd_admin';"
-    - export PGPASSWORD=fd_admin
+    - psql -U postgres -d template1 -c "ALTER USER postgres PASSWORD 'qs_admin';"
+    - export PGPASSWORD=qs_admin
     - sed -i 's/trust/md5/g' /etc/postgresql/11/main/pg_hba.conf
     - service postgresql restart
-    - createdb -U postgres -h localhost fd_database
-    - psql -U postgres -d fd_database -c "create user fd_user with encrypted password 'fd_password';"
-    - psql -U postgres -d fd_database -c "grant all privileges on database fd_database to fd_user;"
+    - createdb -U postgres -h localhost qs_database
+    - psql -U postgres -d qs_database -c "create user qs_user with encrypted password 'qs_password';"
+    - psql -U postgres -d qs_database -c "grant all privileges on database qs_database to qs_user;"
     - python3 back/manage.py makemigrations
     - python3 back/manage.py migrate
   only:

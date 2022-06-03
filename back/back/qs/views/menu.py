@@ -1,6 +1,6 @@
 from django.http import JsonResponse
-from back.fd.serializers.menu import MenuSerializer, MenuSerializerFull
-from back.fd.models.menu import Menu
+from back.qs.serializers.menu import MenuSerializer, MenuSerializerFull
+from back.qs.models.menu import Menu
 
 
 def menu(request, menu_id):

@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class FdConfig(AppConfig):
+class qsConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'back.fd'
+    name = 'back.qs'

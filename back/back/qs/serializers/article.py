@@ -1,6 +1,6 @@
 from rest_framework import serializers
-from back.fd.models import Article
-from back.fd.serializers.user import UserSerializer
+from back.qs.models import Article
+from back.qs.serializers.user import UserSerializer
 
 
 class ArticleSerializer(serializers.ModelSerializer):
