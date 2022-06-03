@@ -1,8 +1,0 @@
-# cache files
-__pycache__
-
-# temporary files
-**.lock
-
-# migrations
-migrations/**
