@@ -46,7 +46,7 @@ function qs-push() {
     cd $HOME/dev/QuackSnackFront && git status && git add . && git commit -m "Updated: `date +'%d-%m-%Y %H:%M:%S'`" && git push
 }
 
-# Change the password of the database superuser 
+# Change the password of the superuser 
 function qs-pass() {
     printf  "${CYAN}configuring database${NC}\n"
     sudo sed -i 's/peer/trust/g' /etc/postgresql/*/main/pg_hba.conf
