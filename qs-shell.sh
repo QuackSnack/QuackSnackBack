@@ -110,12 +110,12 @@ function qs-projects() {
     mkdir -p $HOME/dev
 
     cd $HOME/dev
-    git clone git@gitlab.com:GregoryHue/QuackSnackBack.git
+    git clone git@github.com:GregoryHue/QuackSnackBack.git
     cd QuackSnackBack/back
     python3 manage.py makemigrations qs && python3 manage.py migrate && python3 manage.py loaddata data.json
     
     cd $HOME/dev
-    git clone git@gitlab.com:GregoryHue/QuackSnackFront.git
+    git clone git@github.com:GregoryHue/QuackSnackFront.git
     cd QuackSnackFront/front
     npm install
 }
