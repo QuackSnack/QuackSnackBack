@@ -2,7 +2,7 @@
 
 This project contains the backend of a web-application called ***QuackSnack*** *(for a quick snack)* that propose the typical services of any food chain. This project and the web-application is made purely as an educationnal purpose.
 
-Click here to see the [frontend](https://github.com/GregoryHue/QuackSnackFront).
+Click here to see the [frontend](https://github.com/QuackSnack/QuackSnackFront).
 
 # Setup
 
@@ -18,7 +18,7 @@ To facilitate the setup and project management, the same shell is proposed in bo
 cd && \
 mkdir dev && \
 cd dev && \
-git clone git@github.com:GregoryHue/QuackSnackBack.git && \
+git clone git@github.com:QuackSnack/QuackSnackBack.git && \
 cd QuackSnackBack && \
 source qs-shell.sh; qs-quick-install
 ```
