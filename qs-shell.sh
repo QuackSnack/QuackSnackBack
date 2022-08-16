@@ -17,7 +17,7 @@ declare DATABASE_PASSWORD="qs_password"
 # Runs the frontend
 function qs-front() {
     cd $HOME/dev/QuackSnackFront/front
-    npm run dev
+    npm start
 }
 
 # Runs the backend
@@ -46,7 +46,7 @@ function qs-push() {
     cd $HOME/dev/QuackSnackFront && git status && git add . && git commit -m "Updated: `date +'%d-%m-%Y %H:%M:%S'`" && git push
 }
 
-# Change the password of the superuser 
+# Change the password of the database superuser 
 function qs-pass() {
     printf  "${CYAN}configuring database${NC}\n"
     sudo sed -i 's/peer/trust/g' /etc/postgresql/*/main/pg_hba.conf
@@ -110,12 +110,12 @@ function qs-projects() {
     mkdir -p $HOME/dev
 
     cd $HOME/dev
-    git clone git@github.com:GregoryHue/QuackSnackBack.git
+    git clone git@github.com:QuackSnack/QuackSnackBack.git
     cd QuackSnackBack/back
     python3 manage.py makemigrations qs && python3 manage.py migrate && python3 manage.py loaddata data.json
     
     cd $HOME/dev
-    git clone git@github.com:GregoryHue/QuackSnackFront.git
+    git clone git@github.com:QuackSnack/QuackSnackFront.git
     cd QuackSnackFront/front
     npm install
 }
