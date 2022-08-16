@@ -11,6 +11,19 @@ from back.qs.views import user, order, menu, article
 
 from back.qs.viewset import vs_user, vs_article, vs_menu, vs_order
 
+from rest_framework import views, serializers, status
+from rest_framework.response import Response
+
+class MessageSerializer(serializers.Serializer):
+    message = serializers.CharField()
+    
+class EchoView(views.APIView):
+    def post(self, request, *args, **kwargs):
+        serializer = MessageSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        return Response(
+            serializer.data, status=status.HTTP_201_CREATED)
+
 router = routers.DefaultRouter()
 router.register(r'api/users', vs_user.UserViewSet, basename='user')
 router.register(r'api/clients', vs_user.ClientViewSet, basename='client')
@@ -20,6 +33,8 @@ router.register(r'api/orders', vs_order.OrderViewSet, basename='order')
 router.register(r'api/menus', vs_menu.MenuViewSet, basename='menu')
 
 urlpatterns = [
+    path('api/echo/', EchoView.as_view()),
+
     path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 
