@@ -3,6 +3,14 @@ from back.qs.serializers.order import OrderSerializer, OrderSerializerFull
 from back.qs.models.order import Order
 
 
+def orders(request):
+
+    orders = Order.objects.all()
+    serializer = OrderSerializer(orders, many=True)
+
+    return JsonResponse({'data' : serializer.data})
+
+
 def order(request, order_id):
 
     order = Order.objects.get(pk=order_id)

@@ -3,6 +3,14 @@ from back.qs.serializers.menu import MenuSerializer, MenuSerializerFull
 from back.qs.models.menu import Menu
 
 
+def menus(request):
+
+    menus = Menu.objects.all()
+    serializer = MenuSerializer(menus, many=True)
+
+    return JsonResponse({'data' : serializer.data})
+
+
 def menu(request, menu_id):
 
     menu = Menu.objects.get(pk=menu_id)
