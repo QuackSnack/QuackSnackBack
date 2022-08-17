@@ -8,7 +8,7 @@ from back.qs.models import Order
 class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
-        fields = ('status', 'articles', 'menus', 'date', 'cost', 'client')
+        fields = ('id', 'status', 'articles', 'menus', 'date', 'cost', 'client')
         
 
 class OrderSerializerDetailed(serializers.ModelSerializer):
