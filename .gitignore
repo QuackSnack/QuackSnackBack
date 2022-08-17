@@ -9,3 +9,6 @@ migrations/
 
 # package-lock
 package-lock.json
+
+# environnement
+env/
