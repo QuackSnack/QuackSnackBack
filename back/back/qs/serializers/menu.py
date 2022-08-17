@@ -7,7 +7,7 @@ from back.qs.models import Menu
 class MenuSerializer(serializers.ModelSerializer):
     class Meta:
         model = Menu
-        fields = ('name', 'image', 'description', 'price', 'articles', 'owner')
+        fields = ('id', 'name', 'image', 'description', 'price', 'articles', 'owner')
 
 
 class MenuSerializerDetailed(serializers.ModelSerializer):
