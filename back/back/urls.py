@@ -25,16 +25,14 @@ class EchoView(views.APIView):
             serializer.data, status=status.HTTP_201_CREATED)
 
 router = routers.DefaultRouter()
-router.register(r'api/users', vs_user.UserViewSet, basename='user')
-router.register(r'api/clients', vs_user.ClientViewSet, basename='client')
-router.register(r'api/restaurants', vs_user.RestaurantViewSet, basename='restaurant')
-router.register(r'api/articles', vs_article.ArticleViewSet, basename='article')
-router.register(r'api/orders', vs_order.OrderViewSet, basename='order')
-router.register(r'api/menus', vs_menu.MenuViewSet, basename='menu')
+router.register(r'users', vs_user.UserViewSet, basename='user')
+router.register(r'clients', vs_user.ClientViewSet, basename='client')
+router.register(r'restaurants', vs_user.RestaurantViewSet, basename='restaurant')
+router.register(r'articles', vs_article.ArticleViewSet, basename='article')
+router.register(r'orders', vs_order.OrderViewSet, basename='order')
+router.register(r'menus', vs_menu.MenuViewSet, basename='menu')
 
 urlpatterns = [
-    path('api/echo/', EchoView.as_view()),
-
     path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 
@@ -47,6 +45,9 @@ urlpatterns = [
     path('restaurants/', user.restaurants, name='restaurants'),
     path('restaurant/<int:user_id>/', user.restaurant, name='restaurant'),
 
+    path('restaurants_all/', user.restaurants_all, name='restaurants_all'),
+    path('restaurant_all/<int:user_id>/', user.restaurant_all, name='restaurant_all'),
+
     path('articles/', article.articles, name='articles'),
     path('article/<int:article_id>/', article.article, name='article'),
 
@@ -58,8 +59,8 @@ urlpatterns = [
     path('menu/<int:menu_id>/', menu.menu, name='menu'),
     path('menu_full/<int:menu_id>/', menu.menu_full, name='menu_full'),
 
+    path('api/', include(router.urls)),
 
-    path('admin/', admin.site.urls),
+    path('', admin.site.urls), 
     
-    path('', include(router.urls)),
 ]
