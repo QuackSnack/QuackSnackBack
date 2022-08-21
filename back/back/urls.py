@@ -45,9 +45,6 @@ urlpatterns = [
     path('restaurants/', user.restaurants, name='restaurants'),
     path('restaurant/<int:user_id>/', user.restaurant, name='restaurant'),
 
-    path('restaurants_all/', user.restaurants_all, name='restaurants_all'),
-    path('restaurant_all/<int:user_id>/', user.restaurant_all, name='restaurant_all'),
-
     path('articles/', article.articles, name='articles'),
     path('article/<int:article_id>/', article.article, name='article'),
 

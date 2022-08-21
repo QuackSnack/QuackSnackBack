@@ -1,5 +1,5 @@
 from django.http import JsonResponse
-from back.qs.serializers.user import UserSerializer, RestaurantSerializerFull
+from back.qs.serializers.user import UserSerializer
 from back.qs.models.user import User
 
 
@@ -39,13 +39,13 @@ def restaurant(request, user_id):
     return JsonResponse(serializer.data)
 
 
-def restaurants_all(request):
+def restaurants(request):
     restaurants = User.objects.filter(role=1)
     serializer = UserSerializer(restaurants, many=True)
     return JsonResponse({'data': serializer.data})
 
 
-def restaurant_all(request, user_id):
+def restaurant(request, user_id):
     restaurant = User.objects.filter(role=1).get(pk=user_id)
     serializer = UserSerializer(restaurant)
     return JsonResponse(serializer.data)
