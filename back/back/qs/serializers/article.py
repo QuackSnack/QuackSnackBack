@@ -6,7 +6,7 @@ from back.qs.serializers.user import UserSerializer
 class ArticleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Article
-        fields = ('id', 'name', 'image', 'description', 'price', 'owner')
+        fields = ('id', 'name', 'image', 'description', 'price')
 
 
 class ArticleSerializerFull(serializers.ModelSerializer):

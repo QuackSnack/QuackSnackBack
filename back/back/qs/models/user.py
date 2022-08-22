@@ -1,4 +1,6 @@
 from django.db import models
+from .article import Article
+from .menu import Menu
 
 
 class User(models.Model):
@@ -12,3 +14,5 @@ class User(models.Model):
     street = models.CharField(max_length=50)
     role = models.IntegerField()
     creation_date = models.DateTimeField(auto_now_add=True)
+    articles = models.ManyToManyField(Article)
+    menus = models.ManyToManyField(Menu)
