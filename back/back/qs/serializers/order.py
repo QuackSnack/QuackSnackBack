@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from back.qs.serializers.menu import MenuSerializer, MenuSerializerFull
-from back.qs.serializers.article import ArticleSerializer, ArticleSerializerFull
+from back.qs.serializers.article import ArticleSerializer
 from back.qs.serializers.user import UserSerializer
 from back.qs.models import Order
 
@@ -21,7 +21,7 @@ class OrderSerializerDetailed(serializers.ModelSerializer):
 
 
 class OrderSerializerFull(serializers.ModelSerializer):
-    articles = ArticleSerializerFull(many=True)
+    articles = ArticleSerializer(many=True)
     menus = MenuSerializerFull(many=True)
     client = UserSerializer()
     class Meta:

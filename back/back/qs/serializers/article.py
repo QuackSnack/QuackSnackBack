@@ -7,10 +7,3 @@ class ArticleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Article
         fields = ('id', 'name', 'image', 'description', 'price')
-
-
-class ArticleSerializerFull(serializers.ModelSerializer):
-    owner = UserSerializer()
-    class Meta:
-        model = Article
-        fields = ArticleSerializer.Meta.fields
