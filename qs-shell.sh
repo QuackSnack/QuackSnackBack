@@ -46,17 +46,24 @@ function qs-push-dev() {
 
     (cd $HOME/dev/QuackSnackFront
     if [[ $(git rev-parse --abbrev-ref HEAD) == "dev" ]]; then
-    printf  "${CYAN}puhsing to QuackSnackFront${NC}\n"
+    printf  "${CYAN}pushing to QuackSnackFront${NC}\n"
         (cd $HOME/dev/QuackSnackFront && git add . && git commit -m "Push: `date +'%d-%m-%Y %H:%M:%S'`" && git push)
     fi)
 }
 
 # Update the main branch of both projects based on the dev 
 function qs-merge-main() {
+    (cd $HOME/dev/QuackSnackBack  && git checkout main
+    if [[ $(git rev-parse --abbrev-ref HEAD) == "main" ]]; then
     printf  "${CYAN}merging QuackSnackBack${NC}\n"
-    (cd $HOME/dev/QuackSnackBack && git status && git checkout main && git merge dev && git commit -m "Merge: `date +'%d-%m-%Y %H:%M:%S'`" && git push && git checkout dev)
+        (git pull origin main && git merge dev && git commit -m "Merge: `date +'%d-%m-%Y %H:%M:%S'`" && git push && git checkout dev)
+    fi)
+
+    (cd $HOME/dev/QuackSnackFront  && git checkout main
+    if [[ $(git rev-parse --abbrev-ref HEAD) == "main" ]]; then
     printf  "${CYAN}merging QuackSnackFront${NC}\n"
-    (cd $HOME/dev/QuackSnackFront && git status && git checkout main && git merge dev && git commit -m "Merge: `date +'%d-%m-%Y %H:%M:%S'`" && git push && git checkout dev)
+        (git pull origin main && git merge dev && git commit -m "Merge: `date +'%d-%m-%Y %H:%M:%S'`" && git push && git checkout dev)
+    fi)
 }
 
 # Change the password of the database superuser 
