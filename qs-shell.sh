@@ -36,12 +36,31 @@ function qs-superuser() {
     (cd $HOME/dev/QuackSnackBack/back && source env/bin/activate && ./manage.py createsuperuser --noinput --username $DJANGO_SUPERUSER_USERNAME --email $DJANGO_SUPERUSER_EMAIL)
 }
 
-# Push the changes on every projects
-function qs-push() {
+# Push the changes of both projects
+function qs-push-dev() {
+    (
+    cd $HOME/dev/QuackSnackBack
+    if [[ $(git rev-parse --abbrev-ref HEAD) == "dev" ]]; then
     printf  "${CYAN}pushing to QuackSnackBack${NC}\n"
-    (cd $HOME/dev/QuackSnackBack && git status && git add . && git commit -m "Updated: `date +'%d-%m-%Y %H:%M:%S'`" && git push)
+        (cd $HOME/dev/QuackSnackBack && git add . && git commit -m "Push: `date +'%d-%m-%Y %H:%M:%S'`" && git push)
+    fi
+    )
+
+    (
+    cd $HOME/dev/QuackSnackFront
+    if [[ $(git rev-parse --abbrev-ref HEAD) == "dev" ]]; then
     printf  "${CYAN}puhsing to QuackSnackFront${NC}\n"
-    (cd $HOME/dev/QuackSnackFront && git status && git add . && git commit -m "Updated: `date +'%d-%m-%Y %H:%M:%S'`" && git push)
+        (cd $HOME/dev/QuackSnackFront && git add . && git commit -m "Push: `date +'%d-%m-%Y %H:%M:%S'`" && git push)
+    fi
+    )
+}
+
+# Update the main branch of both projects based on the dev 
+function qs-merge-main() {
+    printf  "${CYAN}merging QuackSnackBack${NC}\n"
+    (cd $HOME/dev/QuackSnackBack && git status && git checkout main && git merge dev && git commit -m "Merge: `date +'%d-%m-%Y %H:%M:%S'`" && git push && git checkout dev)
+    printf  "${CYAN}merging QuackSnackFront${NC}\n"
+    (cd $HOME/dev/QuackSnackFront && git status && git checkout main && git merge dev && git commit -m "Merge: `date +'%d-%m-%Y %H:%M:%S'`" && git push && git checkout dev)
 }
 
 # Change the password of the database superuser 
@@ -58,21 +77,20 @@ function qs-pass() {
 }
 
 # Create or drop the qs dabatase
-function qs-database() {
-    if [ -n "$1" ] && [ "$1" == "create" ]; then
-        printf  "${CYAN}creating database${NC}\n"
-        sudo -u postgres PGPASSWORD=$DATABASE_PASSWORD createdb $DATABASE_NAME
-        printf  "${CYAN}adding user${NC}\n"
-        sudo -u postgres PGPASSWORD=$DATABASE_PASSWORD psql -d $DATABASE_NAME -c "create user $DATABASE_USER with encrypted password '$DATABASE_PASSWORD';"
-        sudo -u postgres PGPASSWORD=$DATABASE_PASSWORD psql -d $DATABASE_NAME -c "grant all privileges on database $DATABASE_NAME to $DATABASE_USER;"
-    elif [ -n "$1" ] && [ "$1" == "drop" ]; then
-        printf  "${CYAN}dropping database & user${NC}\n"
-        sudo -u postgres PGPASSWORD=$DATABASE_PASSWORD psql -d postgres -c "SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE datname = '$DATABASE_NAME';"
-        sudo -u postgres PGPASSWORD=$DATABASE_PASSWORD dropdb $DATABASE_NAME -e
-        sudo -u postgres PGPASSWORD=$DATABASE_PASSWORD dropuser qs_user -e
-    else
-        printf  "${CYAN}create / drop${NC}\n"
-    fi
+function qs-database-create() {
+    printf  "${CYAN}creating database${NC}\n"
+    sudo -u postgres PGPASSWORD=$DATABASE_PASSWORD createdb $DATABASE_NAME
+    printf  "${CYAN}adding user${NC}\n"
+    sudo -u postgres PGPASSWORD=$DATABASE_PASSWORD psql -d $DATABASE_NAME -c "create user $DATABASE_USER with encrypted password '$DATABASE_PASSWORD';"
+    sudo -u postgres PGPASSWORD=$DATABASE_PASSWORD psql -d $DATABASE_NAME -c "grant all privileges on database $DATABASE_NAME to $DATABASE_USER;"
+}
+
+# Create or drop the qs dabatase
+function qs-database-drop() {
+    printf  "${CYAN}dropping database & user${NC}\n"
+    sudo -u postgres PGPASSWORD=$DATABASE_PASSWORD psql -d postgres -c "SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE datname = '$DATABASE_NAME';"
+    sudo -u postgres PGPASSWORD=$DATABASE_PASSWORD dropdb $DATABASE_NAME -e
+    sudo -u postgres PGPASSWORD=$DATABASE_PASSWORD dropuser qs_user -e
 }
 
 # Installs all required libraries
@@ -133,7 +151,7 @@ function qs-quick-install() {
     qs-install
     qs-libs
     qs-pass
-    qs-database "create"
+    qs-database-create
     qs-superuser
     qs-projects
     printf  "${CYAN}\n\n\nrun \"qs-front\" to start the frontend\nor\nrun \"qs-back\" to start the backend${NC}\n"
