@@ -38,21 +38,17 @@ function qs-superuser() {
 
 # Push the changes of both projects
 function qs-push-dev() {
-    (
-    cd $HOME/dev/QuackSnackBack
+    (cd $HOME/dev/QuackSnackBack
     if [[ $(git rev-parse --abbrev-ref HEAD) == "dev" ]]; then
     printf  "${CYAN}pushing to QuackSnackBack${NC}\n"
         (cd $HOME/dev/QuackSnackBack && git add . && git commit -m "Push: `date +'%d-%m-%Y %H:%M:%S'`" && git push)
-    fi
-    )
+    fi)
 
-    (
-    cd $HOME/dev/QuackSnackFront
+    (cd $HOME/dev/QuackSnackFront
     if [[ $(git rev-parse --abbrev-ref HEAD) == "dev" ]]; then
     printf  "${CYAN}puhsing to QuackSnackFront${NC}\n"
         (cd $HOME/dev/QuackSnackFront && git add . && git commit -m "Push: `date +'%d-%m-%Y %H:%M:%S'`" && git push)
-    fi
-    )
+    fi)
 }
 
 # Update the main branch of both projects based on the dev 
