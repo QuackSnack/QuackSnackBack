@@ -54,7 +54,7 @@
         "pk": 6,
         "fields": {
             "name": "Whooper",
-            "image": "whooper",
+            "image": "whooper.jpg",
             "description": "This is a whooper",
             "price": 7
         }
@@ -144,7 +144,7 @@
         "pk": 1,
         "fields": {
             "name": "McChicken menu",
-            "image": "empty",
+            "image": "m_mcchicken.jpg",
             "description": "A McChicken, McFlurry and a Coca cola",
             "price": 9,
             "articles": [
@@ -159,7 +159,7 @@
         "pk": 2,
         "fields": {
             "name": "BigMac menu",
-            "image": "empty",
+            "image": "m_bigmac.jpg",
             "description": "A BigMac, McFlurry and a Coca cola",
             "price": 10,
             "articles": [
@@ -174,7 +174,7 @@
         "pk": 3,
         "fields": {
             "name": "Whooper menu",
-            "image": "empty",
+            "image": "m_whooper.jpg",
             "description": "A Whooper, fries and a Pespi",
             "price": 8,
             "articles": [
@@ -189,7 +189,7 @@
         "pk": 4,
         "fields": {
             "name": "Chicken nuggets menu",
-            "image": "empty",
+            "image": "m_chickennuggets.jpg",
             "description": "A Chicken nuggets, Fries and a Pepsi",
             "price": 7,
             "articles": [
@@ -204,7 +204,7 @@
         "pk": 5,
         "fields": {
             "name": "Barbecue Ribs",
-            "image": "empty",
+            "image": "m_barbecueribs.jpg",
             "description": "Ribs with barbecue sauce",
             "price": 13,
             "articles": [
@@ -218,7 +218,7 @@
         "pk": 6,
         "fields": {
             "name": "Pulled pork burger menu",
-            "image": "empty",
+            "image": "m_pulledporkburger.jpg",
             "description": "A Pulled pork burger with barbecue sauce and an Ice Tea",
             "price": 4,
             "articles": [
@@ -233,7 +233,7 @@
         "pk": 7,
         "fields": {
             "name": "Steak and ribs menu",
-            "image": "empty",
+            "image": "m_steakandribs.jpg",
             "description": "A steak and ribs with barbecue sauce and an Ice Tea",
             "price": 19,
             "articles": [
@@ -356,8 +356,7 @@
             ],
             "menus": [
                 3,
-                4,
-                5
+                4
             ]
         }
     },
@@ -412,7 +411,7 @@
             "menus": [
                 6,
                 7,
-                4
+                5
             ]
         }
     },
