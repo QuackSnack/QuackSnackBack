@@ -2,6 +2,7 @@ from django.http import JsonResponse
 from back.qs.serializers.user import UserSerializer
 from back.qs.models.user import User
 from back.qs.serializers.restaurant import RestaurantSerializer
+from django.views.decorators.csrf import requires_csrf_token
 
 
 def users(request):
@@ -10,10 +11,19 @@ def users(request):
     return JsonResponse({'data': serializer.data})
 
 
+@requires_csrf_token
+def test(request):
+    if request.method == 'POST':
+        for parameter in request.POST:
+            print(parameter)
+        return JsonResponse({})
+
+
 def user(request, user_id):
-    user = User.objects.get(pk=user_id)
-    serializer = UserSerializer(user)
-    return JsonResponse(serializer.data)
+    if request.method == 'GET':
+        user = User.objects.get(pk=user_id)
+        serializer = UserSerializer(user)
+        return JsonResponse(serializer.data)
 
 
 def clients(request):

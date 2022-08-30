@@ -28,6 +28,18 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+CSRF_TRUSTED_ORIGINS = ['http://localhost:3000']
+
+CSRF_COOKIE_SECURE = False
+
+CSRF_COOKIE_NAME = "csrftoken"
+
+CSRF_COOKIE_HTTPONLY = False
+
+CORS_EXPOSE_HEADERS = ["Content-Type", "X-CSRFToken"]
+
+CORS_ALLOW_CREDENTIALS = True
+
 CORS_ALLOWED_ORIGINS = ['http://localhost:3000']
 
 CORS_ALLOW_METHODS = [
@@ -41,6 +53,12 @@ CORS_ALLOW_METHODS = [
 
 CORS_ALLOW_HEADERS = [
     "access-control-allow-origin",
+]
+
+CORS_ALLOW_HEADERS = [
+    "content-type",
+    "X-CSRF-TOKEN",
+    "x-csrftoken",
 ]
 
 # Application definition
