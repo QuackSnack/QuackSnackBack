@@ -28,34 +28,26 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+CSRF_COOKIE_NAME = 'X-CSRFToken'
+
 CSRF_TRUSTED_ORIGINS = ['http://localhost:3000']
-
-CSRF_COOKIE_SECURE = False
-
-CSRF_COOKIE_NAME = "csrftoken"
-
-CSRF_COOKIE_HTTPONLY = False
-
-CORS_EXPOSE_HEADERS = ["Content-Type", "X-CSRFToken"]
-
-CORS_ALLOW_CREDENTIALS = True
 
 CORS_ALLOWED_ORIGINS = ['http://localhost:3000']
 
+CORS_ALLOW_CREDENTIALS = True
+
 CORS_ALLOW_METHODS = [
     "DELETE",
+    "POST",
     "GET",
     "OPTIONS",
     "PATCH",
-    "POST",
     "PUT",
 ]
 
 CORS_ALLOW_HEADERS = [
     "access-control-allow-origin",
-]
-
-CORS_ALLOW_HEADERS = [
+    "access-control-allow-credentials",
     "content-type",
     "X-CSRF-TOKEN",
     "x-csrftoken",
@@ -80,6 +72,7 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
         'rest_framework_simplejwt.authentication.JWTAuthentication',
         'rest_framework.authentication.SessionAuthentication',
     ),

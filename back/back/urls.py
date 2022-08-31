@@ -7,8 +7,8 @@ from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
 )
-
-from back.qs.views import token, user, order, menu, article
+from back.qs.views.token import GetCSRFToken
+from back.qs.views import  user, order, menu, article
 
 from back.qs.viewset import vs_user, vs_article, vs_menu, vs_order
 
@@ -34,7 +34,7 @@ router.register(r'orders', vs_order.OrderViewSet, basename='order')
 router.register(r'menus', vs_menu.MenuViewSet, basename='menu')
 
 urlpatterns = [
-    path('tokenCSRF/', token.get_csrf, name='token_obtain_pair'),
+    path('tokenCSRF/', GetCSRFToken.as_view()),
     path('tokenJWT/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('tokenJWT/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 
