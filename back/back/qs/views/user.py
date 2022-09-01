@@ -14,6 +14,8 @@ def users(request):
 @requires_csrf_token
 def test(request):
     if request.method == 'POST':
+        for re in request.POST:
+            print(re)
         users = User.objects.all()
         serializer = UserSerializer(users, many=True)
         return JsonResponse({'data': serializer.data})
