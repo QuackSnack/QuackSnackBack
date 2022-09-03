@@ -248,16 +248,22 @@
         "model": "qs.user",
         "pk": 1,
         "fields": {
+            "password": "pbkdf2_sha256$390000$f8kmAJkfJOs6HgiM0AGAxI$dNTJfQfmm2SVRUqSu6mBoca61fc3jZVzwef6PqQTei4=",
+            "last_login": "2022-09-03T14:13:29.666Z",
+            "is_superuser": false,
             "username": "Deconsenry",
-            "email": "JacquesSabourin@rhyta.com",
-            "password": "password",
             "first_name": "Jacques",
             "last_name": "Sabourin",
+            "email": "JacquesSabourin@rhyta.com",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2022-09-03T14:13:05.241Z",
             "town": "PONTAULT-COMBAULT",
             "country": "France",
             "street": "88, rue de la Boétie",
             "role": 0,
-            "creation_date": "2022-06-03T15:47:46.315Z",
+            "groups": [],
+            "user_permissions": [],
             "articles": [],
             "menus": []
         }
@@ -266,16 +272,22 @@
         "model": "qs.user",
         "pk": 2,
         "fields": {
+            "password": "pbkdf2_sha256$390000$SgW5EXhbx3RKF5ICcfgdDH$aKqWsc82JE9L4OpJQ9pTRK/X5uxfzxY2l+LENADEHz8=",
+            "last_login": null,
+            "is_superuser": false,
             "username": "Bable1977",
-            "email": "PorterCartier@armyspy.com",
-            "password": "password",
             "first_name": "Porter",
             "last_name": "Cartier",
+            "email": "PorterCartier@armyspy.com",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2022-09-03T14:15:03.908Z",
             "town": "MEUDON-LA-FORÊT",
             "country": "France",
             "street": "87, Rue St Ferréol",
             "role": 0,
-            "creation_date": "2022-06-03T15:47:46.315Z",
+            "groups": [],
+            "user_permissions": [],
             "articles": [],
             "menus": []
         }
@@ -284,16 +296,22 @@
         "model": "qs.user",
         "pk": 3,
         "fields": {
+            "password": "pbkdf2_sha256$390000$zFTMHNMfdXcuFavt91cPic$pudFSKohhJWXsaR1IaCin4iakz2NhVBVk2R7pq1dvv8=",
+            "last_login": null,
+            "is_superuser": false,
             "username": "Recove",
-            "email": "SorenAuthier@teleworm.us",
-            "password": "password",
             "first_name": "Soren",
             "last_name": "Authier",
+            "email": "SorenAuthier@teleworm.us",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2022-09-03T14:15:55.752Z",
             "town": "GOUSSAINVILLE",
             "country": "France",
             "street": "61, rue Jean-Monnet",
             "role": 0,
-            "creation_date": "2022-06-03T15:47:46.315Z",
+            "groups": [],
+            "user_permissions": [],
             "articles": [],
             "menus": []
         }
@@ -302,16 +320,22 @@
         "model": "qs.user",
         "pk": 4,
         "fields": {
+            "password": "pbkdf2_sha256$390000$ai6H86BRtByG97islt8Pzu$TMijYOZVlL0hNJnmX0CaSTeM0W0frUQYb8uY2vC8RA8=",
+            "last_login": null,
+            "is_superuser": false,
             "username": "Boyer1937",
-            "email": "DurandanaLachance@jourrapide.com",
-            "password": "password",
             "first_name": "Durandana",
             "last_name": "Lachance",
+            "email": "DurandanaLachance@jourrapide.com",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2022-09-03T14:16:23.978Z",
             "town": "LE ROBERT",
             "country": "France",
             "street": "2, rue Adolphe Wurtz",
             "role": 0,
-            "creation_date": "2022-06-03T15:47:46.315Z",
+            "groups": [],
+            "user_permissions": [],
             "articles": [],
             "menus": []
         }
@@ -320,16 +344,22 @@
         "model": "qs.user",
         "pk": 5,
         "fields": {
+            "password": "pbkdf2_sha256$390000$ceQyMW0yEE8WutF3PaHozr$x85EqWDS2HOhHl2Zyn3BREuvmQLiboap3B/kKM9tBIg=",
+            "last_login": null,
+            "is_superuser": false,
             "username": "Pith1944",
-            "email": "RoxanneLafond@armyspy.com",
-            "password": "password",
             "first_name": "Roxanne",
             "last_name": "Lafond",
+            "email": "RoxanneLafond@armyspy.com",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2022-09-03T14:16:49.847Z",
             "town": "CHOISY-LE-ROI",
             "country": "France",
             "street": "74, rue Ernest Renan",
             "role": 0,
-            "creation_date": "2022-06-03T15:47:46.315Z",
+            "groups": [],
+            "user_permissions": [],
             "articles": [],
             "menus": []
         }
@@ -338,16 +368,22 @@
         "model": "qs.user",
         "pk": 6,
         "fields": {
+            "password": "pbkdf2_sha256$390000$Dlsozcfth5I3uK6OGIiLmg$HVmUrIAiH/rSjPn/8vc9LS52+tQ5vAG4/OOZzCUU/Sc=",
+            "last_login": null,
+            "is_superuser": false,
             "username": "Burger King",
-            "email": "burgerking@gmail.com",
-            "password": "password",
             "first_name": "Burger",
             "last_name": "King",
-            "town": "VÉNISSIEUX ",
+            "email": "burgerking@gmail.com",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2022-09-03T14:17:14.643Z",
+            "town": "VÉNISSIEUX",
             "country": "France",
             "street": "37, boulevard d'Alsace",
             "role": 1,
-            "creation_date": "2022-06-03T15:47:46.315Z",
+            "groups": [],
+            "user_permissions": [],
             "articles": [
                 6,
                 7,
@@ -364,16 +400,22 @@
         "model": "qs.user",
         "pk": 7,
         "fields": {
+            "password": "pbkdf2_sha256$390000$WOfE0dFp1erxlv2a09CB9K$8vDdh6KOGpD8pov9TKTFOB6TuDiuFjD6vd3pPCTFYPA=",
+            "last_login": null,
+            "is_superuser": false,
             "username": "McDonald",
-            "email": "mcdonald@gmail.com",
-            "password": "password",
             "first_name": "Mc",
             "last_name": "Donald",
+            "email": "mcdonald@gmail.com",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2022-09-03T14:17:45.486Z",
             "town": "LE MANS",
             "country": "France",
             "street": "79, rue Goya",
             "role": 1,
-            "creation_date": "2022-06-03T15:47:46.315Z",
+            "groups": [],
+            "user_permissions": [],
             "articles": [
                 1,
                 2,
@@ -391,16 +433,22 @@
         "model": "qs.user",
         "pk": 8,
         "fields": {
+            "password": "pbkdf2_sha256$390000$ugnLpaZcN6vUYpO8BlTP8l$UWdSnlQZY8BLTRtYdjbqqSoMwdrC9+9c2V4F3Xdb4/o=",
+            "last_login": null,
+            "is_superuser": false,
             "username": "Buffalo Grill",
-            "email": "buffalogrill@gmail.com",
-            "password": "password",
             "first_name": "Buffalo",
             "last_name": "Grill",
+            "email": "buffalogrill@gmail.com",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2022-09-03T14:18:11.920Z",
             "town": "LE MANS",
             "country": "France",
             "street": "40, Chemin Des Bateliers",
             "role": 1,
-            "creation_date": "2022-06-03T15:47:46.315Z",
+            "groups": [],
+            "user_permissions": [],
             "articles": [
                 10,
                 11,
@@ -514,485 +562,6 @@
             "menus": [
                 6
             ]
-        }
-    },
-    {
-        "model": "admin.logentry",
-        "pk": 4,
-        "fields": {
-            "action_time": "2022-08-21T12:15:24.125Z",
-            "user": 5,
-            "content_type": 8,
-            "object_id": "1",
-            "object_repr": "ghue",
-            "action_flag": 3,
-            "change_message": ""
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 1,
-        "fields": {
-            "name": "Can add article",
-            "content_type": 1,
-            "codename": "add_article"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 2,
-        "fields": {
-            "name": "Can change article",
-            "content_type": 1,
-            "codename": "change_article"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 3,
-        "fields": {
-            "name": "Can delete article",
-            "content_type": 1,
-            "codename": "delete_article"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 4,
-        "fields": {
-            "name": "Can view article",
-            "content_type": 1,
-            "codename": "view_article"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 5,
-        "fields": {
-            "name": "Can add menu",
-            "content_type": 2,
-            "codename": "add_menu"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 6,
-        "fields": {
-            "name": "Can change menu",
-            "content_type": 2,
-            "codename": "change_menu"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 7,
-        "fields": {
-            "name": "Can delete menu",
-            "content_type": 2,
-            "codename": "delete_menu"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 8,
-        "fields": {
-            "name": "Can view menu",
-            "content_type": 2,
-            "codename": "view_menu"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 9,
-        "fields": {
-            "name": "Can add user",
-            "content_type": 3,
-            "codename": "add_user"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 10,
-        "fields": {
-            "name": "Can change user",
-            "content_type": 3,
-            "codename": "change_user"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 11,
-        "fields": {
-            "name": "Can delete user",
-            "content_type": 3,
-            "codename": "delete_user"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 12,
-        "fields": {
-            "name": "Can view user",
-            "content_type": 3,
-            "codename": "view_user"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 13,
-        "fields": {
-            "name": "Can add order",
-            "content_type": 4,
-            "codename": "add_order"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 14,
-        "fields": {
-            "name": "Can change order",
-            "content_type": 4,
-            "codename": "change_order"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 15,
-        "fields": {
-            "name": "Can delete order",
-            "content_type": 4,
-            "codename": "delete_order"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 16,
-        "fields": {
-            "name": "Can view order",
-            "content_type": 4,
-            "codename": "view_order"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 17,
-        "fields": {
-            "name": "Can add log entry",
-            "content_type": 5,
-            "codename": "add_logentry"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 18,
-        "fields": {
-            "name": "Can change log entry",
-            "content_type": 5,
-            "codename": "change_logentry"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 19,
-        "fields": {
-            "name": "Can delete log entry",
-            "content_type": 5,
-            "codename": "delete_logentry"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 20,
-        "fields": {
-            "name": "Can view log entry",
-            "content_type": 5,
-            "codename": "view_logentry"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 21,
-        "fields": {
-            "name": "Can add permission",
-            "content_type": 6,
-            "codename": "add_permission"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 22,
-        "fields": {
-            "name": "Can change permission",
-            "content_type": 6,
-            "codename": "change_permission"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 23,
-        "fields": {
-            "name": "Can delete permission",
-            "content_type": 6,
-            "codename": "delete_permission"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 24,
-        "fields": {
-            "name": "Can view permission",
-            "content_type": 6,
-            "codename": "view_permission"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 25,
-        "fields": {
-            "name": "Can add group",
-            "content_type": 7,
-            "codename": "add_group"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 26,
-        "fields": {
-            "name": "Can change group",
-            "content_type": 7,
-            "codename": "change_group"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 27,
-        "fields": {
-            "name": "Can delete group",
-            "content_type": 7,
-            "codename": "delete_group"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 28,
-        "fields": {
-            "name": "Can view group",
-            "content_type": 7,
-            "codename": "view_group"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 29,
-        "fields": {
-            "name": "Can add user",
-            "content_type": 8,
-            "codename": "add_user"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 30,
-        "fields": {
-            "name": "Can change user",
-            "content_type": 8,
-            "codename": "change_user"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 31,
-        "fields": {
-            "name": "Can delete user",
-            "content_type": 8,
-            "codename": "delete_user"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 32,
-        "fields": {
-            "name": "Can view user",
-            "content_type": 8,
-            "codename": "view_user"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 33,
-        "fields": {
-            "name": "Can add content type",
-            "content_type": 9,
-            "codename": "add_contenttype"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 34,
-        "fields": {
-            "name": "Can change content type",
-            "content_type": 9,
-            "codename": "change_contenttype"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 35,
-        "fields": {
-            "name": "Can delete content type",
-            "content_type": 9,
-            "codename": "delete_contenttype"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 36,
-        "fields": {
-            "name": "Can view content type",
-            "content_type": 9,
-            "codename": "view_contenttype"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 37,
-        "fields": {
-            "name": "Can add session",
-            "content_type": 10,
-            "codename": "add_session"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 38,
-        "fields": {
-            "name": "Can change session",
-            "content_type": 10,
-            "codename": "change_session"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 39,
-        "fields": {
-            "name": "Can delete session",
-            "content_type": 10,
-            "codename": "delete_session"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 40,
-        "fields": {
-            "name": "Can view session",
-            "content_type": 10,
-            "codename": "view_session"
-        }
-    },
-    {
-        "model": "auth.user",
-        "pk": 5,
-        "fields": {
-            "password": "pbkdf2_sha256$390000$kM6djcXZFrwPFYYdy0NVtY$spknfBfnCwCu8YprojleiVZIj1v349jVU5I7Ld8vwrg=",
-            "last_login": "2022-08-21T12:15:15.070Z",
-            "is_superuser": true,
-            "username": "qs_admin",
-            "first_name": "",
-            "last_name": "",
-            "email": "quacksnack@quack.snack",
-            "is_staff": true,
-            "is_active": true,
-            "date_joined": "2022-08-21T12:10:47.223Z",
-            "groups": [],
-            "user_permissions": []
-        }
-    },
-    {
-        "model": "contenttypes.contenttype",
-        "pk": 1,
-        "fields": {
-            "app_label": "qs",
-            "model": "article"
-        }
-    },
-    {
-        "model": "contenttypes.contenttype",
-        "pk": 2,
-        "fields": {
-            "app_label": "qs",
-            "model": "menu"
-        }
-    },
-    {
-        "model": "contenttypes.contenttype",
-        "pk": 3,
-        "fields": {
-            "app_label": "qs",
-            "model": "user"
-        }
-    },
-    {
-        "model": "contenttypes.contenttype",
-        "pk": 4,
-        "fields": {
-            "app_label": "qs",
-            "model": "order"
-        }
-    },
-    {
-        "model": "contenttypes.contenttype",
-        "pk": 5,
-        "fields": {
-            "app_label": "admin",
-            "model": "logentry"
-        }
-    },
-    {
-        "model": "contenttypes.contenttype",
-        "pk": 6,
-        "fields": {
-            "app_label": "auth",
-            "model": "permission"
-        }
-    },
-    {
-        "model": "contenttypes.contenttype",
-        "pk": 7,
-        "fields": {
-            "app_label": "auth",
-            "model": "group"
-        }
-    },
-    {
-        "model": "contenttypes.contenttype",
-        "pk": 8,
-        "fields": {
-            "app_label": "auth",
-            "model": "user"
-        }
-    },
-    {
-        "model": "contenttypes.contenttype",
-        "pk": 9,
-        "fields": {
-            "app_label": "contenttypes",
-            "model": "contenttype"
-        }
-    },
-    {
-        "model": "contenttypes.contenttype",
-        "pk": 10,
-        "fields": {
-            "app_label": "sessions",
-            "model": "session"
-        }
-    },
-    {
-        "model": "sessions.session",
-        "pk": "o4kicnsq5v4kc8dsssmeq23pgvmnyfog",
-        "fields": {
-            "session_data": ".eJxVjMsOwiAQRf-FtSHIo4BL9_0GMsNMpWogKe3K-O_apAvd3nPOfYkE21rS1nlJM4mLcOL0uyHkB9cd0B3qrcnc6rrMKHdFHrTLsRE_r4f7d1Cgl289OaRhgoiggs5gI2Sy3ngEBheCASD2URti1uSDwnO2gyKTrXHKaSveHxppOIg:1oPjrH:jkOnbhA39Yn9F6YhrmMMOd5mrikOa4YaXppWqxnKGCM",
-            "expire_date": "2022-09-04T12:15:15.072Z"
         }
     }
 ]

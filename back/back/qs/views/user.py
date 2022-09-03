@@ -50,6 +50,7 @@ def sign_up(request):
                                             country=parameters['country'],
                                             street=parameters['streetName'],
                                             role=parameters['role'])
+            print('user created')
             return HttpResponse("User created")
         return HttpResponse("User not created")
 
