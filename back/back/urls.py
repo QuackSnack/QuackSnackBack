@@ -38,26 +38,22 @@ urlpatterns = [
     path('tokenJWT/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('tokenJWT/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 
-    path('users/', user.users, name='users'),
-    path('user/<int:user_id>/', user.user, name='user'),
-    path('test/', user.test, name='test'),
+    path('get-all/user/', user.all_user, name='user'),
+    path('get-all/client/', user.all_client, name='user'),
+    path('get-all/restaurant/', user.all_restaurant, name='user'),
+    path('get-all/article/', article.all_article, name='article'),
+    path('get-all/menu/', menu.all_menu, name='menu'),
+    path('get-all/order/', order.all_order, name='order'),
     
-    path('clients/', user.clients, name='clients'),
-    path('client/<int:user_id>/', user.client, name='client'),
-    
-    path('restaurants/', user.restaurants, name='restaurants'),
-    path('restaurant/<int:user_id>/', user.restaurant, name='restaurant'),
+    path('get-single/user/<int:user_id>/', user.single_user, name='user'),
+    path('get-single/client/<int:user_id>/', user.single_client, name='user'),
+    path('get-single/restaurant/<int:user_id>/', user.single_restaurant, name='user'),
+    path('get-single/article/<int:article_id>/', article.single_article, name='article'),
+    path('get-single/menu/<int:menu_id>/', menu.single_menu, name='menu'),
+    path('get-single/order/<int:order_id>/', order.single_order, name='order'),
 
-    path('articles/', article.articles, name='articles'),
-    path('article/<int:article_id>/', article.article, name='article'),
-
-    path('orders/', order.orders, name='orders'),
-    path('order/<int:order_id>/', order.order, name='order'),
-    path('order_full/<int:order_id>/', order.order_full, name='order_full'),
-
-    path('menus/', menu.menus, name='menus'),
-    path('menu/<int:menu_id>/', menu.menu, name='menu'),
-    path('menu_full/<int:menu_id>/', menu.menu_full, name='menu_full'),
+    path('sign-in/', user.sign_in, name='sign_in'),
+    path('sign-up/', user.sign_up, name='sign_up'),
 
     path('api/', include(router.urls)),
 
