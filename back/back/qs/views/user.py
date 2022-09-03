@@ -6,6 +6,7 @@ import json
 from django.contrib.auth import authenticate, login, logout
 from back.qs.serializers.restaurant import RestaurantSerializer
 from django.views.decorators.csrf import requires_csrf_token
+from django.contrib.sessions.models import Session
 
 
 def all_user(request):
@@ -30,10 +31,10 @@ def sign_in(request):
                 username=parameters['username'], password=parameters['password'])
             if user is not None:
                 login(request, user)
-                return HttpResponse("Logged in")
-            return HttpResponse("User doesn't exists")
+                return JsonResponse({'message': "User logging in"})
+            return JsonResponse({'message': "User not found"}, status=500)
         except:
-            return HttpResponse("Couldn't log in")
+            return JsonResponse({'message': "Couldn't log in"}, status=500)
 
 
 @requires_csrf_token
@@ -50,9 +51,8 @@ def sign_up(request):
                                             country=parameters['country'],
                                             street=parameters['streetName'],
                                             role=parameters['role'])
-            print('user created')
-            return HttpResponse("User created")
-        return HttpResponse("User not created")
+            return JsonResponse({'message': "User created"})
+        return JsonResponse({'message': "Couldn't create the user"}, status=500)
 
 
 def all_client(request):
@@ -70,9 +70,11 @@ def single_client(request, user_id):
 def all_restaurant(request):
     restaurants = User.objects.filter(role=1)
     serializer = RestaurantSerializer(restaurants, many=True)
+    s = Session.objects.get(pk=request.session.session_key)
+    print(s.get_decoded())
     return JsonResponse({'data': serializer.data})
 
-
+    
 def single_restaurant(request, user_id):
     restaurant = User.objects.filter(role=1).get(pk=user_id)
     serializer = RestaurantSerializer(restaurant)

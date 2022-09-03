@@ -6,6 +6,7 @@ from rest_framework import routers
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
+    TokenVerifyView,
 )
 from back.qs.views.token import GetCSRFToken
 from back.qs.views import  user, order, menu, article
@@ -35,8 +36,9 @@ router.register(r'menus', vs_menu.MenuViewSet, basename='menu')
 
 urlpatterns = [
     path('tokenCSRF/', GetCSRFToken.as_view()),
-    path('tokenJWT/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('tokenJWT/obtain', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('tokenJWT/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('tokenJWT/verify/', TokenVerifyView.as_view(), name='token_verify'),
 
     path('get-all/user/', user.all_user, name='user'),
     path('get-all/client/', user.all_client, name='user'),
