@@ -26,9 +26,8 @@ def sign_in(request):
     if request.method == 'POST':
         try:
             parameters = json.loads(request.body)
-            username = parameters['username']
-            password = parameters['password']
-            user = authenticate(username=username, password=password)
+            user = authenticate(
+                username=parameters['username'], password=parameters['password'])
             if user is not None:
                 login(request, user)
                 return HttpResponse("Logged in")
@@ -44,6 +43,7 @@ def sign_up(request):
         if parameters['password'] == parameters['repeatedPassword']:
             user = User.objects.create_user(email=parameters['email'],
                                             username=parameters['username'],
+                                            password=parameters['password'],
                                             first_name=parameters['firstName'],
                                             last_name=parameters['lastName'],
                                             town=parameters['town'],
