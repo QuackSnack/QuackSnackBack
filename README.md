@@ -22,8 +22,8 @@ To facilitate the setup and project management, a shell called `qs-shell` is pro
 cd && \
 mkdir dev && \
 cd dev && \
-git clone git@github.com:QuackSnack/QuickSnackBack.git && \
-cd QuickSnackBack && \
+git clone git@github.com:QuackSnack/QuackSnackBack.git && \
+cd QuackSnackBack && \
 source qs-shell.sh; qs-quick-install
 ```
 
