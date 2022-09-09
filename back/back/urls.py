@@ -9,22 +9,12 @@ from rest_framework_simplejwt.views import (
     TokenVerifyView,
 )
 from back.qs.views.token import GetCSRFToken
-from back.qs.views import  user, order, menu, article
+from back.qs.views import auth, user, order, menu, article
 
 from back.qs.viewset import vs_user, vs_article, vs_menu, vs_order
 
 from rest_framework import views, serializers, status
 from rest_framework.response import Response
-
-class MessageSerializer(serializers.Serializer):
-    message = serializers.CharField()
-    
-class EchoView(views.APIView):
-    def post(self, request, *args, **kwargs):
-        serializer = MessageSerializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        return Response(
-            serializer.data, status=status.HTTP_201_CREATED)
 
 router = routers.DefaultRouter()
 router.register(r'users', vs_user.UserViewSet, basename='user')
@@ -36,9 +26,6 @@ router.register(r'menus', vs_menu.MenuViewSet, basename='menu')
 
 urlpatterns = [
     path('tokenCSRF/', GetCSRFToken.as_view()),
-    path('tokenJWT/obtain', TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('tokenJWT/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-    path('tokenJWT/verify/', TokenVerifyView.as_view(), name='token_verify'),
 
     path('get-all/user/', user.all_user, name='user'),
     path('get-all/client/', user.all_client, name='user'),
@@ -54,8 +41,9 @@ urlpatterns = [
     path('get-single/menu/<int:menu_id>/', menu.single_menu, name='menu'),
     path('get-single/order/<int:order_id>/', order.single_order, name='order'),
 
-    path('sign-in/', user.sign_in, name='sign_in'),
-    path('sign-up/', user.sign_up, name='sign_up'),
+    path('sign-in/', auth.sign_in, name='sign_in'),
+    path('sign-up/', auth.sign_up, name='sign_up'),
+    path('log-out/', auth.log_out, name='log_out'),
 
     path('api/', include(router.urls)),
 
