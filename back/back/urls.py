@@ -1,20 +1,13 @@
 
 from django.contrib import admin
 from django.urls import path, include
-from rest_framework import routers
+from rest_framework import routers, views, serializers, status
+from rest_framework.response import Response
 
-from rest_framework_simplejwt.views import (
-    TokenObtainPairView,
-    TokenRefreshView,
-    TokenVerifyView,
-)
 from back.qs.views.token import GetCSRFToken
 from back.qs.views import auth, user, order, menu, article
-
 from back.qs.viewset import vs_user, vs_article, vs_menu, vs_order
 
-from rest_framework import views, serializers, status
-from rest_framework.response import Response
 
 router = routers.DefaultRouter()
 router.register(r'users', vs_user.UserViewSet, basename='user')
@@ -48,5 +41,4 @@ urlpatterns = [
     path('api/', include(router.urls)),
 
     path('', admin.site.urls), 
-    
 ]
