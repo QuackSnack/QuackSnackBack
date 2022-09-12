@@ -3,6 +3,6 @@ from back.qs.models.tag import Tag
 
 
 class TagSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Tag
-        fields = ('name',)
+  class Meta:
+    model = Tag
+    fields = ('name',)

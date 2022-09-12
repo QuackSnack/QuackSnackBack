@@ -3,7 +3,7 @@ from back.qs.models import User
 
 
 class UserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
-        fields = ('id', 'username', 'email', 'password', 'first_name', 'last_name',
-                  'town', 'country', 'street', 'role', 'date_joined')
+  class Meta:
+    model = User
+    fields = ('id', 'username', 'email', 'password', 'first_name', 'last_name',
+              'town', 'country', 'street', 'role', 'date_joined')

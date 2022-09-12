@@ -8,7 +8,7 @@ from rest_framework.views import APIView
 @method_decorator(ensure_csrf_cookie, name='dispatch')
 class GetCSRFToken(APIView):
 
-    permission_classes = (permissions.AllowAny, )
+  permission_classes = (permissions.AllowAny, )
 
-    def get(self, request, format=None):
-        return Response({'success': 'CSRF cookie set'})
+  def get(self, request, format=None):
+    return Response({'success': 'CSRF cookie set'})

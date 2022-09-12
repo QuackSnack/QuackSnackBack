@@ -5,15 +5,15 @@ from back.qs.models.article import Article
 
 def all_article(request):
 
-    articles = Article.objects.all()
-    serializer = ArticleSerializer(articles, many=True)
+  articles = Article.objects.all()
+  serializer = ArticleSerializer(articles, many=True)
 
-    return JsonResponse({'data' : serializer.data})
+  return JsonResponse({'data': serializer.data})
 
 
 def single_article(request, article_id):
 
-    article = Article.objects.get(pk=article_id)
-    serializer = ArticleSerializer(article)
+  article = Article.objects.get(pk=article_id)
+  serializer = ArticleSerializer(article)
 
-    return JsonResponse(serializer.data)
+  return JsonResponse(serializer.data)
