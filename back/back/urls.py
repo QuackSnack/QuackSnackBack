@@ -15,6 +15,7 @@ router.register(r'menus', vs_menu.MenuViewSet, basename='menu')
 
 urlpatterns = [
     path('tokenCSRF/', GetCSRFToken.as_view()),
+    path('get-all/data/', user.all_data, name='user'),
     path('get-all/user/', user.all_user, name='user'),
     path('get-all/client/', user.all_client, name='user'),
     path('get-all/restaurant/', user.all_restaurant, name='user'),

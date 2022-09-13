@@ -1,8 +1,12 @@
 from django.http import JsonResponse
+from back.qs.models.article import Article
+from back.qs.models.menu import Menu
+from back.qs.serializers.article import ArticleSerializer
+from back.qs.serializers.menu import MenuSerializer
 from back.qs.serializers.user import UserSerializer
 from back.qs.serializers.restaurant import RestaurantSerializer
+from back.qs.serializers.client import ClientSerializer
 from back.qs.models.user import User
-from rest_framework.permissions import IsAuthenticated
 
 
 def all_user(request):
@@ -20,13 +24,13 @@ def single_user(request, user_id):
 
 def all_client(request):
   clients = User.objects.filter(role=0)
-  serializer = UserSerializer(clients, many=True)
+  serializer = ClientSerializer(clients, many=True)
   return JsonResponse({'data': serializer.data})
 
 
 def single_client(request, user_id):
   client = User.objects.filter(role=0).get(pk=user_id)
-  serializer = UserSerializer(client)
+  serializer = ClientSerializer(client)
   return JsonResponse(serializer.data)
 
 
@@ -43,3 +47,22 @@ def single_restaurant(request, user_id):
   restaurant = User.objects.filter(role=1).get(pk=user_id)
   serializer = RestaurantSerializer(restaurant)
   return JsonResponse(serializer.data)
+
+
+# need to find a better solution
+def all_data(request):
+  if request.user.is_authenticated:
+    restaurants = User.objects.filter(role=1)
+    articles = Article.objects.all()
+    menus = Menu.objects.all()
+    srlz_restaurants = RestaurantSerializer(restaurants, many=True)
+    srlz_articles = ArticleSerializer(articles, many=True)
+    srlz_menus = MenuSerializer(menus, many=True)
+
+    return JsonResponse({
+        'restaurants': srlz_restaurants.data,
+        'articles': srlz_articles.data,
+        'menus': srlz_menus.data,
+    })
+  else:
+    return JsonResponse({'message': "User is not logged in"}, status=500)

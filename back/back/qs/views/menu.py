@@ -1,5 +1,5 @@
 from django.http import JsonResponse
-from back.qs.serializers.menu import MenuSerializer, MenuSerializerFull
+from back.qs.serializers.menu import MenuSerializer
 from back.qs.models.menu import Menu
 
 
@@ -22,6 +22,6 @@ def single_menu(request, menu_id):
 def single_menu_full(request, menu_id):
 
   menu = Menu.objects.get(pk=menu_id)
-  serializer = MenuSerializerFull(menu)
+  serializer = MenuSerializer(menu)
 
   return JsonResponse(serializer.data)

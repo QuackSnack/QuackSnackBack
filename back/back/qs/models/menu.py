@@ -1,5 +1,5 @@
 from django.db import models
-from .article import Article
+from .choice import Choice
 from .tag import Tag
 
 
@@ -8,5 +8,5 @@ class Menu(models.Model):
   image = models.CharField(max_length=50)
   description = models.TextField()
   price = models.IntegerField()
-  articles = models.ManyToManyField(Article)
+  choice = models.ManyToManyField(Choice)
   tag = models.ManyToManyField(Tag)
