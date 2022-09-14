@@ -7,6 +7,7 @@ from back.qs.serializers.user import UserSerializer
 from back.qs.serializers.restaurant import RestaurantSerializer
 from back.qs.serializers.client import ClientSerializer
 from back.qs.models.user import User
+from django.views.decorators.csrf import requires_csrf_token
 
 
 def all_user(request):
@@ -16,7 +17,7 @@ def all_user(request):
 
 
 def single_user(request, user_id):
-  if request.method == 'GET':
+  if request.method == 'GET' and request.user.id == user_id:
     user = User.objects.get(pk=user_id)
     serializer = UserSerializer(user)
     return JsonResponse(serializer.data)
@@ -34,13 +35,14 @@ def single_client(request, user_id):
   return JsonResponse(serializer.data)
 
 
+@requires_csrf_token
 def all_restaurant(request):
   if request.user.is_authenticated:
     restaurants = User.objects.filter(role=1)
     serializer = RestaurantSerializer(restaurants, many=True)
     return JsonResponse({'data': serializer.data})
   else:
-    return JsonResponse({'message': "User is not logged in"}, status=500)
+    return JsonResponse({'message': "User is not logged in"}, status=400)
 
 
 def single_restaurant(request, user_id):
@@ -65,4 +67,4 @@ def all_data(request):
         'menus': srlz_menus.data,
     })
   else:
-    return JsonResponse({'message': "User is not logged in"}, status=500)
+    return JsonResponse({'message': "User is not logged in"}, status=400)

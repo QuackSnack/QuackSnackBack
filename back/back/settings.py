@@ -47,11 +47,8 @@ CORS_ALLOW_METHODS = [
 ]
 
 CORS_ALLOW_HEADERS = [
-    "access-control-allow-origin",
-    "access-control-allow-credentials",
     "content-type",
-    "X-CSRF-TOKEN",
-    "x-csrftoken",
+    "X-CSRFToken",
 ]
 
 # Application definition
