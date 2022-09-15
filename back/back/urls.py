@@ -16,22 +16,32 @@ router.register(r'menus', vs_menu.MenuViewSet, basename='menu')
 urlpatterns = [
     path('tokenCSRF/', GetCSRFToken.as_view()),
     path('ping/', auth.ping, name='auth'),
-    path('get-all/data/', user.all_data, name='user'),
-    path('get-all/user/', user.all_user, name='user'),
-    path('get-all/client/', user.all_client, name='user'),
-    path('get-all/restaurant/', user.all_restaurant, name='user'),
-    path('get-all/article/', article.all_article, name='article'),
-    path('get-all/menu/', menu.all_menu, name='menu'),
-    path('get-all/order/', order.all_order, name='order'),
-    path('get-single/user/<int:user_id>/', user.single_user, name='user'),
-    path('get-single/client/<int:user_id>/', user.single_client, name='user'),
-    path('get-single/restaurant/<int:user_id>/', user.single_restaurant, name='user'),
-    path('get-single/article/<int:article_id>/', article.single_article, name='article'),
-    path('get-single/menu/<int:menu_id>/', menu.single_menu, name='menu'),
-    path('get-single/order/<int:order_id>/', order.single_order, name='order'),
+
+    path('get/user/<int:user_id>/', user.get_user, name='user'),
+    path('get/client/<int:user_id>/', user.get_client, name='user'),
+    path('get/restaurant/<int:user_id>/', user.get_restaurant, name='user'),
+    path('get/article/<int:article_id>/', article.get_article, name='article'),
+    path('get/menu/<int:menu_id>/', menu.get_menu, name='menu'),
+    path('get/order/<int:order_id>/', order.get_order, name='order'),
+
+    path('create/article/<int:article_id>/', article.create_article, name='article'),
+    path('create/menu/<int:menu_id>/', menu.create_menu, name='menu'),
+    path('create/order/<int:order_id>/', order.create_order, name='order'),
+
+    path('modify/user/<int:user_id>/', user.modify_user, name='user'),
+    path('modify/article/<int:article_id>/', article.modify_article, name='article'),
+    path('modify/menu/<int:menu_id>/', menu.modify_menu, name='menu'),
+    path('modify/order/<int:order_id>/', order.modify_order, name='order'),
+    
+    path('delete/user/<int:user_id>/', user.delete_user, name='user'),
+    path('delete/article/<int:article_id>/', article.delete_article, name='article'),
+    path('delete/menu/<int:menu_id>/', menu.delete_menu, name='menu'),
+    path('delete/order/<int:order_id>/', order.delete_order, name='order'),
+
     path('sign-in/', auth.sign_in, name='sign_in'),
     path('sign-up/', auth.sign_up, name='sign_up'),
     path('log-out/', auth.log_out, name='log_out'),
+
     path('api/', include(router.urls)),
     path('', admin.site.urls),
 ]
