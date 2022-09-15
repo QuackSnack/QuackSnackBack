@@ -17,26 +17,24 @@ urlpatterns = [
     path('tokenCSRF/', GetCSRFToken.as_view()),
     path('ping/', auth.ping, name='auth'),
 
+    path('get/user/', user.get_user, name='user'),
     path('get/user/<int:user_id>/', user.get_user, name='user'),
+    path('get/client/', user.get_client, name='user'),
     path('get/client/<int:user_id>/', user.get_client, name='user'),
+    path('get/restaurant/', user.get_restaurant, name='user'),
     path('get/restaurant/<int:user_id>/', user.get_restaurant, name='user'),
+    path('get/restaurant-and-articles/', user.get_restaurant, name='user'),
+    path('get/restaurant-and-articles/<int:user_id>/', user.get_restaurant, name='user'),
+    path('get/article/', article.get_article, name='article'),
     path('get/article/<int:article_id>/', article.get_article, name='article'),
+    path('get/menu/', menu.get_menu, name='menu'),
     path('get/menu/<int:menu_id>/', menu.get_menu, name='menu'),
+    path('get/order/', order.get_order, name='order'),
     path('get/order/<int:order_id>/', order.get_order, name='order'),
 
-    path('create/article/<int:article_id>/', article.create_article, name='article'),
-    path('create/menu/<int:menu_id>/', menu.create_menu, name='menu'),
-    path('create/order/<int:order_id>/', order.create_order, name='order'),
-
     path('modify/user/<int:user_id>/', user.modify_user, name='user'),
-    path('modify/article/<int:article_id>/', article.modify_article, name='article'),
-    path('modify/menu/<int:menu_id>/', menu.modify_menu, name='menu'),
-    path('modify/order/<int:order_id>/', order.modify_order, name='order'),
-    
-    path('delete/user/<int:user_id>/', user.delete_user, name='user'),
-    path('delete/article/<int:article_id>/', article.delete_article, name='article'),
-    path('delete/menu/<int:menu_id>/', menu.delete_menu, name='menu'),
-    path('delete/order/<int:order_id>/', order.delete_order, name='order'),
+
+    path('create/article/', article.create_article, name='article'),
 
     path('sign-in/', auth.sign_in, name='sign_in'),
     path('sign-up/', auth.sign_up, name='sign_up'),

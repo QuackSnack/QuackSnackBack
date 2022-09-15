@@ -1,62 +1,85 @@
+import json
 from django.http import JsonResponse
-from back.qs.models.article import Article
-from back.qs.models.menu import Menu
-from back.qs.serializers.article import ArticleSerializer
-from back.qs.serializers.menu import MenuSerializer
 from back.qs.serializers.user import UserSerializer
-from back.qs.serializers.restaurant import RestaurantSerializer
-from back.qs.serializers.client import ClientSerializer
 from back.qs.models.user import User
-from django.views.decorators.csrf import requires_csrf_token
+from back.qs.serializers.restaurant import RestaurantSerializer
 
 
-def all_user(request):
+def get_user(request, user_id=None):
   if request.method == 'GET':
-    users = User.objects.all()
-    serializer = UserSerializer(users, many=True)
+    if user_id is None:
+      try:
+        user = User.objects.all()
+        serializer = UserSerializer(user, many=True)
+      except User.DoesNotExist:
+        return JsonResponse({'message': "User not found"}, status=400)
+    elif isinstance(user_id, int):
+      try:
+        user = User.objects.get(pk=user_id)
+        serializer = UserSerializer(user)
+      except User.DoesNotExist:
+        return JsonResponse({'message': "User not found"}, status=400)
     return JsonResponse({'data': serializer.data})
   return JsonResponse({'message': "Wrong type of request"}, status=400)
 
 
-def single_user(request, user_id):
-  if request.method == 'GET' and request.user.id == user_id:
-    user = User.objects.get(pk=user_id)
-    serializer = UserSerializer(user)
-    return JsonResponse(serializer.data)
-  return JsonResponse({'message': "Wrong type of request"}, status=400)
-
-
-def all_client(request):
+def get_client(request, user_id=None):
   if request.method == 'GET':
-    clients = User.objects.filter(role=0)
-    serializer = ClientSerializer(clients, many=True)
+    if user_id is None:
+      try:
+        user = User.objects.all().filter(role=0)
+        serializer = UserSerializer(user, many=True)
+      except User.DoesNotExist:
+        return JsonResponse({'message': "User not found"}, status=400)
+    elif isinstance(user_id, int):
+      try:
+        user = User.objects.get(pk=user_id, role=0)
+        serializer = UserSerializer(user)
+      except User.DoesNotExist:
+        return JsonResponse({'message': "User not found"}, status=400)
     return JsonResponse({'data': serializer.data})
   return JsonResponse({'message': "Wrong type of request"}, status=400)
 
 
-def single_client(request, user_id):
+def get_restaurant(request, user_id=None):
   if request.method == 'GET':
-    client = User.objects.filter(role=0).get(pk=user_id)
-    serializer = ClientSerializer(client)
-    return JsonResponse(serializer.data)
+    if user_id is None:
+      try:
+        user = User.objects.all().filter(role=1)
+        serializer = RestaurantSerializer(user, many=True)
+      except User.DoesNotExist:
+        return JsonResponse({'message': "User not found"}, status=400)
+    elif isinstance(user_id, int):
+      try:
+        user = User.objects.get(pk=user_id, role=1)
+        serializer = RestaurantSerializer(user)
+      except User.DoesNotExist:
+        return JsonResponse({'message': "User not found"}, status=400)
+    return JsonResponse({'data': serializer.data})
   return JsonResponse({'message': "Wrong type of request"}, status=400)
 
 
-@requires_csrf_token
-def all_restaurant(request):
-  if request.method == 'GET':
-    if request.user.is_authenticated:
-      restaurants = User.objects.filter(role=1)
-      serializer = RestaurantSerializer(restaurants, many=True)
-      return JsonResponse({'data': serializer.data})
-    else:
-      return JsonResponse({'message': "User is not logged in"}, status=400)
-  return JsonResponse({'message': "Wrong type of request"}, status=400)
-
-
-def single_restaurant(request, user_id):
-  if request.method == 'GET':
-    restaurant = User.objects.filter(role=1).get(pk=user_id)
-    serializer = RestaurantSerializer(restaurant)
-    return JsonResponse(serializer.data)
+def modify_user(request, user_id=None):
+  if request.method == 'POST':
+    parameters = json.loads(request.body)
+    if user_id is None:
+      return JsonResponse({'message': "User not found"}, status=400)
+    elif isinstance(user_id, int):
+      try:
+        user = User.objects.get(pk=user_id, role=1)
+        if user.check_password(parameters['currentPassword']) and request.user.id == user_id:
+          user.email = parameters['email']
+          user.username = parameters['username']
+          user.first_name = parameters['firstName']
+          user.last_name = parameters['lastName']
+          user.town = parameters['town']
+          user.country = parameters['country']
+          user.streetName = parameters['streetName']
+          if parameters['newPassword'] != '':
+            user.set_password(parameters['newPassword'])
+          user.save()
+          return JsonResponse({'message': "Restaurant modified"})
+      except User.DoesNotExist:
+        return JsonResponse({'message': "User not found"}, status=400)
+    return JsonResponse({'message': "User not found"}, status=400)
   return JsonResponse({'message': "Wrong type of request"}, status=400)

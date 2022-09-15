@@ -18,9 +18,9 @@ def sign_in(request):
         login(request, log_in)
         user = User.objects.get(username=parameters['username'])
         serializer = UserSerializer(user)
-        return JsonResponse({'message': "User logging in", 'user' : serializer.data})
+        return JsonResponse({'message': "User logging in", 'user': serializer.data})
       return JsonResponse({'message': "User not found"}, status=400)
-    except:
+    except User.DoesNotExist:
       return JsonResponse({'message': "Couldn't log in"}, status=400)
 
 
