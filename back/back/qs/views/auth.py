@@ -22,6 +22,7 @@ def sign_in(request):
       return JsonResponse({'message': "User not found"}, status=400)
     except User.DoesNotExist:
       return JsonResponse({'message': "Couldn't log in"}, status=400)
+  return JsonResponse({'message': "Wrong type of request"}, status=400)
 
 
 @requires_csrf_token
@@ -40,16 +41,24 @@ def sign_up(request):
                                       role=parameters['role'])
       return JsonResponse({'message': "User created, try to log in"})
     return JsonResponse({'message': "Couldn't create the user"}, status=400)
+  return JsonResponse({'message': "Wrong type of request"}, status=400)
 
 
 @requires_csrf_token
 def log_out(request):
   if request.method == 'POST':
-    try:
-      logout(request)
-      return JsonResponse({'message': "User logged out"})
-    except:
-      return JsonResponse({'message': "Couldn't log out user"}, status=400)
+    logout(request)
+    return JsonResponse({'message': "User logged out"})
+  return JsonResponse({'message': "Wrong type of request"}, status=400)
+
+
+@requires_csrf_token
+def check_user(request, user_id=None):
+  if request.method == 'GET':
+    if request.user.id == user_id:
+      return JsonResponse({'message': "User is valid"})
+    return JsonResponse({'message': "User isn't valid"}, status=400)
+  return JsonResponse({'message': "Wrong type of request"}, status=400)
 
 
 @csrf_exempt

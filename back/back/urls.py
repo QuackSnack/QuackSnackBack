@@ -36,6 +36,7 @@ urlpatterns = [
 
     path('create/article/', article.create_article, name='article'),
 
+    path('check-user/<int:user_id>/', auth.check_user, name='check_user'),
     path('sign-in/', auth.sign_in, name='sign_in'),
     path('sign-up/', auth.sign_up, name='sign_up'),
     path('log-out/', auth.log_out, name='log_out'),
