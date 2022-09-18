@@ -96,22 +96,30 @@ function qs-push-dev() {
 # Update the main branch of both projects based on the dev
 function qs-merge-main() {
   (
+    if [[ $(git rev-parse --abbrev-ref HEAD) == "dev" ]]; then
     cd $HOME/dev/QuackSnackBack && git checkout main
-    if [[ $(git rev-parse --abbrev-ref HEAD) == "main" ]]; then
-      printf "${CYAN}Merging QuackSnackBack dev into main${NC}\n"
-      git pull origin main && git merge dev && git push
-      printf "${CYAN}Pulling QuackSnackBack dev${NC}\n"
-      git checkout dev && git pull origin main && git push
+      if [[ $(git rev-parse --abbrev-ref HEAD) == "main" ]]; then
+        printf "${CYAN}Merging QuackSnackBack dev into main${NC}\n"
+        git pull origin main && git merge dev && git push
+        printf "${CYAN}Pulling QuackSnackBack dev${NC}\n"
+        git checkout dev && git pull origin main && git push
+      fi
+    else
+      printf "${RED}Not on dev branch${NC}\n"
     fi
   )
 
   (
+    if [[ $(git rev-parse --abbrev-ref HEAD) == "dev" ]]; then
     cd $HOME/dev/QuackSnackFront && git checkout main
-    if [[ $(git rev-parse --abbrev-ref HEAD) == "main" ]]; then
-      printf "${CYAN}Merging QuackSnackFront dev into main${NC}\n"
-      git pull origin main && git merge dev && git push
-      printf "${CYAN}Pulling QuackSnackFront dev${NC}\n"
-      git checkout dev && git pull origin main && git push
+      if [[ $(git rev-parse --abbrev-ref HEAD) == "main" ]]; then
+        printf "${CYAN}Merging QuackSnackFront dev into main${NC}\n"
+        git pull origin main && git merge dev && git push
+        printf "${CYAN}Pulling QuackSnackFront dev${NC}\n"
+        git checkout dev && git pull origin main && git push
+      fi
+    else
+      printf "${RED}Not on dev branch${NC}\n"
     fi
   )
 }
@@ -177,7 +185,7 @@ function qs-libs-front() {
 # Installs the local libraries for the backend
 function qs-libs-back() {
   printf "${CYAN}Installing backend libraries${NC}\n"
-  (virtualenv env && source env/bin/activate && pip install -r requirements.txt)
+  (cd $HOME/dev/QuackSnackBack/back && virtualenv env && source env/bin/activate && pip install -r requirements.txt)
 }
 
 # Make migrations in the database
