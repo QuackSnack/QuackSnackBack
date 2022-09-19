@@ -236,11 +236,6 @@
             "image": "m_mcchicken.jpg",
             "description": "A McChicken, McFlurry and a Coca cola",
             "price": 9,
-            "articles": [
-                2,
-                3,
-                5
-            ],
             "tag": [
                 1,
                 2,
@@ -257,11 +252,6 @@
             "image": "m_bigmac.jpg",
             "description": "A BigMac, McFlurry and a Coca cola",
             "price": 10,
-            "articles": [
-                1,
-                3,
-                5
-            ],
             "tag": [
                 1,
                 2,
@@ -278,11 +268,6 @@
             "image": "m_whooper.jpg",
             "description": "A Whooper, fries and a Pespi",
             "price": 8,
-            "articles": [
-                8,
-                9,
-                6
-            ],
             "tag": [
                 1,
                 2,
@@ -299,11 +284,6 @@
             "image": "m_chickennuggets.jpg",
             "description": "A Chicken nuggets, Fries and a Pepsi",
             "price": 7,
-            "articles": [
-                8,
-                9,
-                5
-            ],
             "tag": [
                 1,
                 2,
@@ -320,10 +300,6 @@
             "image": "m_barbecueribs.jpg",
             "description": "Ribs with barbecue sauce",
             "price": 13,
-            "articles": [
-                10,
-                11
-            ],
             "tag": [
                 4,
                 5
@@ -338,11 +314,6 @@
             "image": "m_pulledporkburger.jpg",
             "description": "A Pulled pork burger with barbecue sauce and an Ice Tea",
             "price": 4,
-            "articles": [
-                11,
-                12,
-                14
-            ],
             "tag": [
                 1,
                 4,
@@ -358,12 +329,6 @@
             "image": "m_steakandribs.jpg",
             "description": "A steak and ribs with barbecue sauce and an Ice Tea",
             "price": 19,
-            "articles": [
-                10,
-                11,
-                12,
-                13
-            ],
             "tag": [
                 4,
                 5

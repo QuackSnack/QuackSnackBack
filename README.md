@@ -10,7 +10,7 @@ Click here to see the [frontend](https://github.com/QuackSnack/QuackSnackFront).
 
 # Setup
 
-This setup was made on a Debian 11 distro, using the Windows 11 WSL. The project is placed in `/home/user/dev/QuackSnackBack`.
+This setup was made on a Debian 11 distro, using the Windows 11 WSL. The project is placed in `$HOME/dev/QuackSnackBack`.
 
 ***WARNING : It is highly recommended to set this up on an empty distribution as it will probably mess with your current packages, libraries and database system.***
 
@@ -19,8 +19,8 @@ This setup was made on a Debian 11 distro, using the Windows 11 WSL. The project
 To facilitate the setup and project management, a shell called `qs-shell` is proposed in both projects. The following commands create a folder, pull the project inside of it, then make a quick install with the shell :
 
 ```bash
-cd && \
-mkdir dev && \
+cd $HOME && \
+sudo mkdir dev && \
 cd dev && \
 git clone git@github.com:QuackSnack/QuackSnackBack.git && \
 cd QuackSnackBack && \
