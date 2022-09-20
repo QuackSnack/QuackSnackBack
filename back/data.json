@@ -49,6 +49,7 @@
             "image": "bigmac.jpg",
             "description": "A classic",
             "price": 6,
+            "owner": 7,
             "tag": [
                 1,
                 5
@@ -63,6 +64,7 @@
             "image": "mcflurry.jpg",
             "description": "An ice cream",
             "price": 3,
+            "owner": 7,
             "tag": [
                 6
             ]
@@ -76,6 +78,7 @@
             "image": "cocacola.jpg",
             "description": "The Americans love it",
             "price": 1,
+            "owner": 7,
             "tag": [
                 2
             ]
@@ -89,6 +92,7 @@
             "image": "applepie.jpg",
             "description": "Can't believe Mc Donald serves this",
             "price": 2,
+            "owner": 7,
             "tag": [
                 6
             ]
@@ -102,6 +106,7 @@
             "image": "mcchicken.jpg",
             "description": "Chicken sandwhich",
             "price": 4,
+            "owner": 7,
             "tag": [
                 1,
                 5
@@ -116,6 +121,7 @@
             "image": "whooper.jpg",
             "description": "This is a whooper",
             "price": 7,
+            "owner": 6,
             "tag": [
                 1,
                 5
@@ -130,6 +136,7 @@
             "image": "chickennuggets.jpg",
             "description": "Miam",
             "price": 6,
+            "owner": 6,
             "tag": [
                 3,
                 5
@@ -144,6 +151,7 @@
             "image": "fries.jpg",
             "description": "Can't skip fries",
             "price": 2,
+            "owner": 6,
             "tag": [
                 3
             ]
@@ -157,6 +165,7 @@
             "image": "pepsi.png",
             "description": "Not Coca cola",
             "price": 1,
+            "owner": 6,
             "tag": [
                 2
             ]
@@ -170,6 +179,7 @@
             "image": "ribs.jpg",
             "description": "It's some ribs",
             "price": 13,
+            "owner": 8,
             "tag": [
                 5
             ]
@@ -183,6 +193,7 @@
             "image": "barbecuesauce.jpg",
             "description": "Add it to your ribs",
             "price": 0,
+            "owner": 8,
             "tag": [
                 4
             ]
@@ -196,6 +207,7 @@
             "image": "icetea.jpg",
             "description": "The only thing cold here",
             "price": 1,
+            "owner": 8,
             "tag": [
                 2
             ]
@@ -209,6 +221,7 @@
             "image": "steak.jpg",
             "description": "It's juicy",
             "price": 4,
+            "owner": 8,
             "tag": [
                 5
             ]
@@ -222,6 +235,7 @@
             "image": "pulledporkburger.jpg",
             "description": "Greasy",
             "price": 3,
+            "owner": 8,
             "tag": [
                 1,
                 5
@@ -236,6 +250,7 @@
             "image": "m_mcchicken.jpg",
             "description": "A McChicken, McFlurry and a Coca cola",
             "price": 9,
+            "choice": [],
             "tag": [
                 1,
                 2,
@@ -252,6 +267,7 @@
             "image": "m_bigmac.jpg",
             "description": "A BigMac, McFlurry and a Coca cola",
             "price": 10,
+            "choice": [],
             "tag": [
                 1,
                 2,
@@ -268,6 +284,7 @@
             "image": "m_whooper.jpg",
             "description": "A Whooper, fries and a Pespi",
             "price": 8,
+            "choice": [],
             "tag": [
                 1,
                 2,
@@ -284,6 +301,7 @@
             "image": "m_chickennuggets.jpg",
             "description": "A Chicken nuggets, Fries and a Pepsi",
             "price": 7,
+            "choice": [],
             "tag": [
                 1,
                 2,
@@ -300,6 +318,7 @@
             "image": "m_barbecueribs.jpg",
             "description": "Ribs with barbecue sauce",
             "price": 13,
+            "choice": [],
             "tag": [
                 4,
                 5
@@ -314,6 +333,7 @@
             "image": "m_pulledporkburger.jpg",
             "description": "A Pulled pork burger with barbecue sauce and an Ice Tea",
             "price": 4,
+            "choice": [],
             "tag": [
                 1,
                 4,
@@ -329,6 +349,7 @@
             "image": "m_steakandribs.jpg",
             "description": "A steak and ribs with barbecue sauce and an Ice Tea",
             "price": 19,
+            "choice": [],
             "tag": [
                 4,
                 5
@@ -352,6 +373,8 @@
             "town": "PONTAULT-COMBAULT",
             "country": "France",
             "street": "88, rue de la Boétie",
+            "avatar": null,
+            "banner": null,
             "role": 0,
             "groups": [],
             "user_permissions": [],
@@ -376,6 +399,8 @@
             "town": "MEUDON-LA-FORÊT",
             "country": "France",
             "street": "87, Rue St Ferréol",
+            "avatar": null,
+            "banner": null,
             "role": 0,
             "groups": [],
             "user_permissions": [],
@@ -400,6 +425,8 @@
             "town": "GOUSSAINVILLE",
             "country": "France",
             "street": "61, rue Jean-Monnet",
+            "avatar": null,
+            "banner": null,
             "role": 0,
             "groups": [],
             "user_permissions": [],
@@ -424,6 +451,8 @@
             "town": "LE ROBERT",
             "country": "France",
             "street": "2, rue Adolphe Wurtz",
+            "avatar": null,
+            "banner": null,
             "role": 0,
             "groups": [],
             "user_permissions": [],
@@ -448,6 +477,8 @@
             "town": "CHOISY-LE-ROI",
             "country": "France",
             "street": "74, rue Ernest Renan",
+            "avatar": null,
+            "banner": null,
             "role": 0,
             "groups": [],
             "user_permissions": [],
@@ -462,7 +493,7 @@
             "password": "pbkdf2_sha256$390000$Dlsozcfth5I3uK6OGIiLmg$HVmUrIAiH/rSjPn/8vc9LS52+tQ5vAG4/OOZzCUU/Sc=",
             "last_login": null,
             "is_superuser": false,
-            "username": "Burger King",  
+            "username": "Burger King",
             "first_name": "Burger",
             "last_name": "King",
             "email": "burgerking@gmail.com",
@@ -472,6 +503,8 @@
             "town": "VÉNISSIEUX",
             "country": "France",
             "street": "37, boulevard d'Alsace",
+            "avatar": null,
+            "banner": null,
             "role": 1,
             "groups": [],
             "user_permissions": [],
@@ -504,6 +537,8 @@
             "town": "LE MANS",
             "country": "France",
             "street": "79, rue Goya",
+            "avatar": null,
+            "banner": null,
             "role": 1,
             "groups": [],
             "user_permissions": [],
@@ -537,6 +572,8 @@
             "town": "LE MANS",
             "country": "France",
             "street": "40, Chemin Des Bateliers",
+            "avatar": null,
+            "banner": null,
             "role": 1,
             "groups": [],
             "user_permissions": [],
@@ -571,6 +608,8 @@
             "town": null,
             "country": null,
             "street": null,
+            "avatar": null,
+            "banner": null,
             "role": null,
             "groups": [],
             "user_permissions": [],
