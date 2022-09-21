@@ -8,9 +8,9 @@ from back.qs.models import Menu
 class MenuSerializer(serializers.ModelSerializer):
   tag = TagSerializer(many=True)
   choice = ChoiceSerializer(many=True)
-  # TODO make the tags dynamic 
-  # tag = articles 
+  # TODO make the tags dynamic
+  # tag = articles
 
   class Meta:
     model = Menu
-    fields = ('id', 'name', 'image', 'description', 'price', 'choice', 'tag')
+    fields = ('id', 'name', 'image', 'description', 'price', 'choice', 'tag', 'owner')

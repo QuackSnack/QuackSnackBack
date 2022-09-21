@@ -10,3 +10,4 @@ class Menu(models.Model):
   price = models.IntegerField()
   choice = models.ManyToManyField(Choice)
   tag = models.ManyToManyField(Tag)
+  owner = models.ForeignKey('qs.User', on_delete=models.CASCADE)

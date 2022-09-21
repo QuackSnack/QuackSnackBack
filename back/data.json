@@ -250,6 +250,7 @@
             "image": "m_mcchicken.jpg",
             "description": "A McChicken, McFlurry and a Coca cola",
             "price": 9,
+            "owner": 7,
             "choice": [],
             "tag": [
                 1,
@@ -267,6 +268,7 @@
             "image": "m_bigmac.jpg",
             "description": "A BigMac, McFlurry and a Coca cola",
             "price": 10,
+            "owner": 7,
             "choice": [],
             "tag": [
                 1,
@@ -284,6 +286,7 @@
             "image": "m_whooper.jpg",
             "description": "A Whooper, fries and a Pespi",
             "price": 8,
+            "owner": 6,
             "choice": [],
             "tag": [
                 1,
@@ -301,6 +304,7 @@
             "image": "m_chickennuggets.jpg",
             "description": "A Chicken nuggets, Fries and a Pepsi",
             "price": 7,
+            "owner": 6,
             "choice": [],
             "tag": [
                 1,
@@ -318,6 +322,7 @@
             "image": "m_barbecueribs.jpg",
             "description": "Ribs with barbecue sauce",
             "price": 13,
+            "owner": 8,
             "choice": [],
             "tag": [
                 4,
@@ -333,6 +338,7 @@
             "image": "m_pulledporkburger.jpg",
             "description": "A Pulled pork burger with barbecue sauce and an Ice Tea",
             "price": 4,
+            "owner": 8,
             "choice": [],
             "tag": [
                 1,
@@ -349,6 +355,7 @@
             "image": "m_steakandribs.jpg",
             "description": "A steak and ribs with barbecue sauce and an Ice Tea",
             "price": 19,
+            "owner": 8,
             "choice": [],
             "tag": [
                 4,
@@ -525,7 +532,7 @@
         "pk": 7,
         "fields": {
             "password": "pbkdf2_sha256$390000$WOfE0dFp1erxlv2a09CB9K$8vDdh6KOGpD8pov9TKTFOB6TuDiuFjD6vd3pPCTFYPA=",
-            "last_login": null,
+            "last_login": "2022-09-20T12:27:32.899Z",
             "is_superuser": false,
             "username": "McDonalds",
             "first_name": "Mc",
