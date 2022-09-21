@@ -243,15 +243,51 @@
         }
     },
     {
+        "model": "qs.choice",
+        "pk": 1,
+        "fields": {
+            "name": "Drink",
+            "possibilities": [
+                3
+            ]
+        }
+    },
+    {
+        "model": "qs.choice",
+        "pk": 2,
+        "fields": {
+            "name": "Burger",
+            "possibilities": [
+                1,
+                5
+            ]
+        }
+    },
+    {
+        "model": "qs.choice",
+        "pk": 3,
+        "fields": {
+            "name": "Dessert",
+            "possibilities": [
+                2,
+                4
+            ]
+        }
+    },
+    {
         "model": "qs.menu",
         "pk": 1,
         "fields": {
-            "name": "McChicken menu",
+            "name": "Burger Menu",
             "image": "m_mcchicken.jpg",
-            "description": "A McChicken, McFlurry and a Coca cola",
+            "description": "A drink, a burger and a dessert",
             "price": 9,
             "owner": 7,
-            "choice": [],
+            "choice": [
+                1,
+                2,
+                3
+            ],
             "tag": [
                 1,
                 2,
@@ -532,7 +568,7 @@
         "pk": 7,
         "fields": {
             "password": "pbkdf2_sha256$390000$WOfE0dFp1erxlv2a09CB9K$8vDdh6KOGpD8pov9TKTFOB6TuDiuFjD6vd3pPCTFYPA=",
-            "last_login": "2022-09-20T12:27:32.899Z",
+            "last_login": "2022-09-21T10:34:30.401Z",
             "is_superuser": false,
             "username": "McDonalds",
             "first_name": "Mc",
