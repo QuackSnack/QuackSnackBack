@@ -8,4 +8,4 @@ class Article(models.Model):
   description = models.TextField()
   price = models.IntegerField()
   tag = models.ManyToManyField(Tag)
-  owner = models.ForeignKey('qs.User', on_delete=models.CASCADE)
+  restaurant = models.ForeignKey('qs.User', on_delete=models.CASCADE)
